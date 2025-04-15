@@ -1,0 +1,88 @@
+1. requirements/feactures of Facebook.
+    1. profile (each user will have its profile)
+    2. users will have friends.
+    3. user can post online.(post can have images , text , audio , vidio , etc...)
+
+
+stpes for ER diagrame
+
+1. identify entities.
+    1. user-profile/profile( all info related to user.) 
+    2. user post (post done by user) 
+    3. post-comment(commets done by people) 
+    4. post-like(likes done by people) 
+
+
+2. entity attributes
+    1. user-profile :- name(composite attribute) , username(primary_key) , email(multivalued attribute) , password , contact_no(multivalued attributes) , date_of_birth , age(derived) 
+    2. user-post :- post_id(primary_key) , text_context , images(multivalued) , vidio(multivalued)  , created_timestamp.
+    3. post-comment :- commet_id(primary_key) , text , timestamp
+    4. post-like :- post_id(primary_key) , timestamp
+
+
+3. identify relationship and constrins.
+    1. user-profile(our user) firendship user-profile(our user's friends) (all users have some online friends which also have ther user-profiles)
+        1. mapping cardinality constrins:
+            M : N => a given user can have N firends online and a given friend can have M other friends online.
+        
+        2. participation constrains:
+            both are in partial participation (as friend account/profile can exists without our profile and our profile can also exists without firends profile)
+
+
+    2. user-profile(our user) posts user-post.(users post's post online)
+        1. mapping cardinality constrins:
+            1 : N => a user can post N post's but each post will have will have ONLY ONE USER ASSOCIATED WITH IT.
+        
+        2. participation constrains:
+            a user-profile can exists without post(i.e person havent post anything online) but a post can't exists without a user(
+                i.e if there exists a post then it will be done by some user )
+
+            so user-profile are in partial paritcipation and user-post in are total paritcipation. 
+
+    
+    3. user-profile(our user's friends) can post-like(our firends user can like our post)
+        1. mapping cardinality constrins:
+            1 : N => a user-profile(our user's friends) can do N likes but a like will be always given by a single user.
+        
+        2. participation constrains:
+            a user-profile can exists without likes but a like can't exists without a user(
+                i.e if there exists a like then it will be done by some user )
+
+            so user-profile are in partial paritcipation and post-like  are in total paritcipation. 
+
+
+
+    Note:- here user-profile representing 2 things 
+        1. our refrance user 
+        2. firends of our refrance user.
+
+
+    4. user-profile comments post-commnets 
+        1. mapping cardinality constrins:
+            1 : N => a user-profile(our user's friends) can do N post-comment but a post-comment will be always given by a single user.
+        
+        2. participation constrains:
+            a user-profile can exists without user-comment but a post-comment can't exists without a user(
+                i.e if there exists a comment then it will be done by some user )
+
+            so user-profile are in partial paritcipation and post-comment  are in total paritcipation. 
+
+
+    5. user-post has post-commnets 
+        1. mapping cardinality constrins:
+            1 : N => a user-post can have N comments but a given comment will be by single user.
+        
+        2. participation constrains:
+            a user post can exists without comments but comments cant exists without comment(i.e comment should be done on some post 
+            they can't exists just randomly)
+
+            so user-post are in partial paritcipation and post-comment  are in total paritcipation. 
+
+    6. user-post has post-likes 
+        1. mapping cardinality constrins:
+            1 : N => a user-post can have N likes but a likes only belongs to ones user post.
+        
+        2. participation constrains:
+            a user post can exists without likes  but post-likes cant exists without post.
+
+            so user-post are in partial paritcipation and post-like  are in total paritcipation.  

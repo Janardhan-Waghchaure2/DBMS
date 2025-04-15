@@ -1,0 +1,52 @@
+WHY WE NEED DBMS , WHY DO NORMAL/TRADITIONAL FILE SYSTEM(which are used to manage the files/directories inside computer) 
+
+Difference between File System and DBMS: 
+Basis	                            File System	                            DBMS
+
+Structure           The file system is software that manages 
+                    and organizes the files in a storage medium             DBMS is software for managing the database.
+                    within a computer.	
+
+Data Redundancy	    Redundant data can be present in a file system.	        In DBMS there is no redundant data.
+
+Backup and Recovery	It doesn’t provide backup and recovery                  It provides backup and recovery of data even if it is lost.
+                    of data if it is lost.	
+
+Query processing	There is no efficient query processing                  Efficient query processing is there in DBMS.
+                    in the file system.	
+
+Consistency	        There is less data consistency in the file system.	    There is more data consistency because of 
+                                                                            the process of normalization.
+
+
+Complexity	        It is less complex as compared to DBMS.	                It has more complexity in handling as compared to the file system.
+
+Security Constraints File systems provide less security 
+                    in comparison to DBMS.	                                DBMS has more security mechanisms as compared to file systems.
+
+
+Cost	            It is less expensive than DBMS.	                        It has a comparatively higher cost than a file system.
+
+Data Independence	There is no data independence.	                        In DBMS data independence exists.
+
+User Access	        Only one user can access data at a time.	            Multiple users can access data at a time.
+
+Meaning	            The user has to write procedures for managing databases	The user not required to write procedures.
+
+Sharing 	        Data is distributed in many files. So,                  Due to centralized nature sharing is easy 
+                    not easy to share data	
+
+Data Abstraction	It give details of storage and representation of data	It hides the internal details of Database
+
+Integrity           Integrity Constraints are difficult to implement	    Integrity constraints are easy to implement 
+Constraints	
+
+Atomicity           difficult to implement Atomicity                        Easy to implement Atomicity
+
+concurrent          difficult to implement concurrent Accessing             Easy to implement concurrent Accessing.   
+Accessing 
+
+Security            less security in file systems.                          more security in DBMS.
+
+fetching data	    Cobol, C++ ,python                                 	    Oracle, SQL Server
+                    (as programming languages can manipulate the files)

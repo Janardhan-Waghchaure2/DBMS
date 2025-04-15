@@ -1,0 +1,20 @@
+1. Strong entities are those entities which are having primary key associated with each row/datapoint 
+   i.e we can uniqly identify a given row in a table.
+   ex:- inside university database.
+        sudents are strongs entity as they have unique key associated with each of them.
+
+
+
+2. Weak entities are those entities which are not having primary key and hence we cannot uniqly identify
+   each row.
+
+   weak entities are dependant on strong entities.
+
+   weak entities have to associate to strong entities for their unique identification.
+
+   ex:- inside the bank database.
+        loan is a strong entity but payment is weak entity. as payment of loan EMI's can  exist without loan.
+
+
+3. relation between strong entities is strong relation and 
+   related between a strong and a weak entity is weak relation.

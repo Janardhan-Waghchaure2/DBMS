@@ -1,0 +1,9 @@
+1. There may be a situation where we want to query something that is not from a table.  
+   For example, getting the current date or querying a simple arithmetic expression like 2+2
+
+2. it is a system generated table created by database.
+
+3. we can use select clause to do some basic arithmatics like 
+    1. SELECT 2+2;
+
+4. from here its clear that we dont need FROM keyword to use SELECT keyword.

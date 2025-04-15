@@ -1,0 +1,29 @@
+ ----------------------- Aggregation functions -----------------------
+
+1. COUNT(attribute)  => return the count of how many times 
+   a perticular attribute is occuring inside a perticular column.
+
+   note that for any table with n attributes attr1,attr2,attr3..,attr_n
+   COUNT(attr1) = COUNT(attr2) = .. = COUNT(attr3)
+
+   NOTE THAT COUNT() ONLY COMPUTES HOW MANY NON-NULL VALUES ARE THERE
+   IT WILL NOT COUNT ANY NULL VALUE;
+
+
+2. AVG(attribute)  => returns the average value of the passed 
+   attribute.
+
+3. SUM(attriubte) => return the sum enitire column/attribute.
+
+
+----------------- aggregation -----------------------
+
+
+
+SELECT FUNC(attr1), attr2 // selecting attr1,attr2 with FUNC applied on attr1
+FROM table_name
+GROUP BY attr2; // grouping together the data with attr2.  
+
+FUNC => Aggregation functions.
+
+

@@ -1,0 +1,28 @@
+client machine => where end user lies
+server machine => where remote computer serves required information/data.
+
+0. DBMS-application architectures basically describes the interanal strucuture of how DBMS and application interacts with each other.
+   i.e application(at users side like amazon , netflix , social media apps ,etc..) which lies on the users side requests for data 
+       on server then server queries the DB and sends the data to users.
+
+   so below T1 , T2 , T3 architectures describes how these 3 components are interacting with each other.
+
+1. now depending on where client , server , DB lies BELOW ARE TYPES OF DBMS-application architectures.
+   1. T1(Tier 1) architecture => client and server and DB lies on same machine. ex:- localhost for testing websites.
+
+   2. T2(Tier 2) architecture => client and (server + DB)  are on 2 seperate machines , user programme/application 
+                                 communicates with (server + database) in SQL (with help of JDBC(if application is written in java))
+
+   3. T3(Tier 3) architecture => 1. these systems don't have direct communication of client and DBMS instead 
+                                    client and server communicates and then server further fetches/writes/updates the required 
+                                    info. from DBMS and sends the info back to client.
+                                
+                                 2. Big buisness logics like amazon , social media giants , etc.. are built on top of T3 architecture.
+                                    so T3 architecture is widly used.
+       
+       Advantages of T3 over T1 , T2 :-
+                    1. High scalability as as we can increase or reduce servers according to need with time.
+                    2. Data integraty is high as serverse act as middle layer which minimize the chances of data corruption.
+                    3. Security is high as client dont directly communicate with DB.(if client intentionally or accedently sends 
+                       wrong/buggy sql queries then it may cauld faults in Database ,but T3 avoid these by introducing servers 
+                       between DB and clients)

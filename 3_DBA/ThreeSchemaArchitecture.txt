@@ -1,0 +1,75 @@
+0. three levels of DBMS are 
+    1. view level  
+    2. logical/conceptual level
+    3. physical level
+
+1. schema :- design of database.
+
+---------------- physical level -----------
+
+2. lowest level of abstraction of DB is physical level.
+   here we define how data will be stored in DB.
+   low level data structures are used.
+   here we talk about storage allocation (N-arry tree, etc) , data compression and encryption , etc.
+   also we define the algorithms to efficiently acess , modify and update the datapoints.
+
+---------------- logical level -----------
+3. at physical level all the string and numbers are stored in form of bits and bytes. but it's not 
+   that much clear to read and understand for humans.
+
+   ex:- lets say we have data of student then in physical memory it will look like 
+   name1 , phone1 , address1 , marks1 ,
+   name2 , phone2 , address2 , marks2 ,
+                    .
+                    .
+                    .
+   name_n , phone_n , address_n , marks_n
+
+   but none of this make sense as everything is just randomly stored in contigues memory location.
+
+   and at logical/conceptual level same thins will be stored in form of table so that 
+   it can be unserstood properly.
+
+SR.NO    name    phone    address    marks 
+    1    name1   phone1   address1   marks1  
+    2    name2   phone2   address2   marks2 
+                        .
+                        .
+                        .
+    n    name_n   phone_n   address_n   marks_n    
+
+    and the mapping from physical level to logical/conceptual level is called as "conceptual schema".
+
+
+    ALSO A GIVEN DATABASE CAN HAVE MULTIPLE TABLES IN IT SO " RALATIONASHIPS OF TABLE IS ALSO STUDIED at
+    logical LEVEL."
+
+    SO IN logical LEVEL WE BASICALLY MAP OUR DATA FROM PHYSICAL LEVEL TO logical LEVEL.
+
+---------------- View level -----------
+
+4. at highest level of abstraction is view level.
+   as per the need of different users , SAME DATABASE WILL LOOK DIFFERENT FOR DIFFERENT USERS.
+  
+   ex:- for different departments of amazon ,views will be as below 
+
+      (department)                   (data attributes visible)
+   logistrics department      :- name , address , phone
+
+   customer care department   :- name , phone , product_bought 
+
+   data analytics department  :- region/address , product , selling price , discount 
+
+
+   SO AMASON IS HAVING ONLY ONE SINGLE DATABASE BUT FOR DIFFERENT DEPARMENTS SAME DATABASE IS LOOKING 
+   DIFFERENT(BCAUSE THEY DONT NEED ACCESS TO ENTIRE DATABASE) , HENCE ONLY NEEDED ASPECT OF DB IS SHOWN 
+   TO THE DEPARMENTS , THIS IS CALLED AS VIEW OF DB. 
+
+
+5. COLLECTION OF DATA IN DATABASE AT PERTICULAR TIME IS CALLED AS INSTANCE OF DATABASE.
+   
+   ex:- for a students database if on first day there were only 3 students info. was there then 
+        INSTANCE of database contiains 3 students data.
+
+        on second day if 2 student added more and one removed from database then 
+        INSTANCE OF DATABASE ON SENCOND DAY will contians 4 students data.

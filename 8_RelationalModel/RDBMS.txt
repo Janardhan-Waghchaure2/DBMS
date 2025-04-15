@@ -1,0 +1,8 @@
+1. RDBMS = Relational Database Management System.
+
+2. RDBMS is a DB Management system which manges the data(i.e create , read , update , delete) inside DB based on Relational model.
+
+3. in DB design process  we first design ER model then convert it into relationshinal model then 
+   at the end we convert thise desing into actual DB with help of DB like MySql , oracle , etc..
+   
+    

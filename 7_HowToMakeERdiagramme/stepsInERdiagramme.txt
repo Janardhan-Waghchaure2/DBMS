@@ -1,0 +1,8 @@
+1. steps in ER-diagramme Design.
+    1. identify entities in DB.
+    2. identify attributes of each entities and their type (derived , singl valued or multi-values ,etc.)
+    3. identify relationships and constraints between entities.
+
+2. before making any DB we have to note down all the requirements of the DB user.
+   either in text form or by interviewing them or assuming some requirements.
+   this is called "Requirement Engineering"

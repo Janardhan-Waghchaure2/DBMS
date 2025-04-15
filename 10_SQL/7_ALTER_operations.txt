@@ -1,0 +1,52 @@
+** ALTER IS USED TO CHANGE THE SCHEMA ==> as per requriments schema needs to be chnaged 
+   this is done with ALTER keyword.
+
+1. ADD 
+
+    ** used to add new columns in table.
+
+    ALTER TABLE Student 
+    ADD age INT 
+    ADD rank INT;
+
+    above syntax will add 2 new columns age and rank both of int data type.
+
+
+2. MODIFY 
+
+    ** used to modify datatype of attributes.
+
+    ALTER TABLE Student 
+    MODIFY age VARCHAR(30);
+
+    above syntax will change the datatype of age attribute to string from integer.
+
+
+3. CHANGE COLUMN 
+
+    ** used to change the column name of attribute.
+
+    ALTER TABLE Student
+    CHANGE COLUMN rank CLASS_POSITION INT;
+
+    above syntax will change the name of rank to "CLASS_POSITION" and its data type to INT.
+
+
+4. DROP COLUMN
+
+    ** used to delete the column.
+
+    ALTER TABLE Student
+    DROPT COLUMN age;
+
+    above  syntax will delete the age column of database.
+
+
+5. RENAME 
+
+    ** used to rename the table.
+
+    ALTER TABLE Student
+    RENAME TO MyStudents;
+
+    above syntax will rename the Student table to MyStudents table.

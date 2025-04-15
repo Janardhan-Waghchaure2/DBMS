@@ -1,0 +1,45 @@
+1. ER(Entitiy Relationaship) Model is a Data Model.
+  it provides conceptual understanding of data , data relations , data semantics , consistancy constrains ,etc. 
+
+2. ER model gives an visual unserstanding of logical/conceptual level DB Structure.
+   Entities are real life objects(similar to Obejcts in OOPS).
+
+   ex:- for a given database , entities could be car , student , humans , fruits , etc. which represents real world objects.
+   
+   and each of these entities have some attributes associated with them
+   ex:- car attributes = brand(String) , max speed (float) , horese power (integer) , color (String ) , etc...
+        student attributes = name(String) , age (integer) , rank(integer) , student_id (integer) , batch(integer) etc...
+
+
+3. in terms of Database A TABLE IS AN ENTITIES AND ATTRIBUTES OF ENTITIES ARE COLUMNS OF GIVEN TABLE.
+   and multiple entities are connected to each other I.E THERE ARE SOME RELATIONSHIP BETWEEN THE ENTITES.
+
+   "THATS WHY WE SAY THAT ER-DIAGRAMME DESCRIBES ENTITES(MEANS THEIR ATTRIBUTES GRAPHICALLY) AND ALSO SHOW
+    INTER-RELATION BETWEEN THE ENTITES" 
+
+4. why we need attributes => attributes are required to completly understand the data.
+   i.e to define student we should have some specific info of student like name , age , hight , marks , rank  , id etc.
+   hence to understand entities completly we need attributes.
+
+
+
+
+------------------------------------------------------------------------------------------------------------
+It is a high level Data Model based on perception of a real world that consists of a collection of basic 
+objects , called entities and relationship among these objects.
+
+it acts as a blueprint to design tables in Database.
+------------------------------------------------------------------------------------------------------------    
+   
+ 
+0. entity is shown with rectangle shape in ER diagrame.
+1. attribute is shown with ellipse shape in ER diagrame.
+2. relation is shown with diamond shape in ER diagrame.  
+3. nested ellipse for multivalued attribues.
+4. dotted-eelipse for derived attribues.
+5. attribues with underline are key attributes.
+6. if multiple attribues are pointing to some attribute A , then A is composite attribute.
+7. weak entities double rectangle
+8. relation BETWEEN weak entity and strong Entity is represented by double diamond.
+9. attribues with dotted-underline  represents key attributes of weak entities.
+10. "is-a" relationship/ specialization is represented by inverted triangle.

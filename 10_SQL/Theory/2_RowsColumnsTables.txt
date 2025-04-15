@@ -1,0 +1,38 @@
+1. In Relational database model, a table is a collection of 
+   data elements organised in terms of rows and columns.
+
+   ---------------------------------------------------------------------------------
+   note that this tables contains related data ,for instance for application related to
+   social media , we might of a table called "User_id" which will contain "only user id related info"
+   then may we have a "User_password" table which will contain only password related information
+   of users ,then we may have "User_location" table which will "only contain location/adress related info",etc...
+   so each table of database contains only related inforamation together.
+   ---------------------------------------------------------------------------------
+
+
+2. A single entry in a table is called a Tuple or Record or Row.
+   A single row represents an instance of a table.
+   ex:- if table has 3 attributes name , age , height then a single row/entry represents 
+        a specific person / perticular person / specific instance of table.
+
+
+3. A table consists of several records(row), each record can be broken 
+   down into several smaller parts of data known as "Attributes".
+
+	below table has 4 rows/entries/records
+	and it has 4 attributes which are  ID , Name , Age , Salary.
+
+
+		ID	Name	  Age	   Salary
+		1	Jana	  34	   13000
+		2	Ram	  28	   15000
+		3	drum    20	   18000
+		4	Om 	  42	   19020
+
+4. Attribute Domain.
+==> every attribute should hold a spcific value of a given recored
+    ex:- Name attribute should hold name of a record/row if some record/row
+         is storing salary in name attribute then it violating relational database model.
+
+
+5. A RELATION MEANS "A TABLE" IN DATABSE.

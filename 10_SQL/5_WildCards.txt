@@ -1,0 +1,50 @@
+0. we can search for a perticular data(string data) which follows a pattern 
+   this is called pattern searching/wild card.
+
+1. SELECT *
+   FROM table_name
+   WHERE attribute_name LIKE '% some_word';
+
+
+   above commands will display all the rows
+   where 'attribute_name' attribute will contain 
+   'some_word' word at the last of word.
+
+   here % sign represents a sequence of characters.
+   
+   if the word to be searched lies in the middle somewhere
+   then just add one more % at the end of word like below
+   WHERE attribute_name LIKE '%some_word%';
+
+
+2. SELECT * 
+   FROM table_name
+   WHERE attribute_name LIKE '__someword%';
+  
+   in above commands will display all the rows 
+   where 'attribute_name' will contain 
+   'someword' word 'EXACTLY AFTER 2 CHARACTERS'
+   as one underscore represents one charcter length
+
+
+
+
+   % => any number of characters
+   _ => one character 
+
+
+3. below are some possible patterns with % and -
+
+   WHERE attribute_name LIKE '_word%'; ==> seraching all text where "word" lies after one character from front 
+   WHERE attribute_name LIKE '__word%'; ==> seraching all text where "word" lies after 2 character from front 
+   WHERE attribute_name LIKE '___word%'; ==> seraching all text where "word" lies after 3 character from front 
+
+   WHERE attribute_name LIKE '%word_'; ==> seraching all text where "word" lies after one character from back 
+   WHERE attribute_name LIKE '%word__'; ==> seraching all text where "word" lies after 2 character from back 
+   WHERE attribute_name LIKE '%word___'; ==> seraching all text where "word" lies after 3 character from back 
+
+   WHERE attribute_name LIKE '%word%'; ==> seraching all text where "word" lies between the text.
+
+   WHERE attribute_name LIKE '_word_'; ==> seraching all text where "word" lies between in length 6 text.
+   
+

@@ -1,0 +1,47 @@
+1. variables which are required to define entities.
+
+2. for car Entitiy 
+   car attributes = brand(String) , max speed (float) , horese power (integer) , color (String ) , etc...
+
+3. attributes may have some constrains on them.
+   1. Domain constrains :- some perticualar attributes can only have specific values
+                          ex:- color attribute of above car Entitiy can have only red , blue and green color.
+                               other colors are not avaiable.
+
+
+
+--------- Types of attributes
+
+1. Simple attribute :- attributes which can't be devided furthur
+   ex:- roll number of student , password of something , phone number of someone ,etc...
+
+2. composite attribute :- attributes which can be devided into other sub-attributes 
+                                       or 
+                          attributes which are composed of other attributes.
+   
+   sometimes user wants only a specific part of attribute , in those case composite attributes are useful.
+
+   ex:- name of person can be broken down into 
+          name + father name + surname
+
+         
+        address of person can be broken down into 
+          country , state , city/town , pin , street , etc...
+
+3. single values attribute:- attributes which takes a single values
+
+    ex:- name of person , gender of person , student ID , etc....
+
+
+4. multi-values attribute :- attributes which make take multiple values.
+  ex:- phone-numbers = a person can have multiple phone numbers.
+       nominee-name on some insurance , etc..
+
+   
+5. derived attribute :- attributes which are derived from other attributes.
+
+  ex:- age attribute of a person can be derived from date of birth attribute of person.
+       age = current_year - date_of_birth
+
+
+6. Null attribue :- if values are not known then it is assinged as null.

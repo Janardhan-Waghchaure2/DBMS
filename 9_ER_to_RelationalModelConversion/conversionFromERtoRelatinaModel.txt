@@ -1,0 +1,88 @@
+1. ER and Relational Models are interconvertible as both represents the same real life system.
+
+2. ER diagrams notation are translated to Relational Models as follows.
+    1. Strong Entities.   
+        1. strong Enties becomes indivisual tables in Relational model. 
+        2. table name = Entity name 
+        3. table attributes = Entity attributes
+        4. tables primary key = Entity primary key
+        5. foregion keys are added to establish relationship between the tables.
+
+
+    2. weak Entities 
+        1. weak Entities also becomes indivisual tables 
+        2. table name = Entity name 
+        3. table attributes = Entity attributes
+        4. as weak Entities depends on strong Entities for their unique identification 
+           hence they dont have thir own primary key. instead they have an extra column 
+           which contains primary key of the strong Entities (as the foregion key) on which  
+           this weak Entity is related.
+        5. weak Enties also have artificial/surrogate keys (simply 1,2 ,3,4,.. numbering) 
+           to uniquly identify each row. but those keys dont have any meaning to them.
+        
+
+    3. single valued attributes.
+        1. single valued attributes simply becomes columns in Relational model.
+
+    4. composite attributes.
+        1. all the components of composite attributes becomes columns in Relational model.
+        2. ex:- for composite attribute address with componenets street , plotno. , city , country 
+           will become 4 seperate columns of the table.
+
+    5. multivariate attributes.
+       1. a new table is create for each multivariate attribute.
+       2. and a surrogate key will be assigned to this new table(ex:- 1,2,3,4,5... for each attribute)
+       3. instaed of storing actual multivalued attribute a table is stored in place of multivalued attribute.
+
+    6. derived attributes.
+        1. they are not considerd while building the tables.
+        2. ex:- if DOB column exists in a given table then we can calculate the 
+           age column instead of storing the age of each person. BECAUSE THAT WILL BE WASTAGE OF MONEY.
+
+    7. generalization(i.e making a one more table from 2 tables beacuase there was some similar attributes in 2 Entities)
+        1. methode1 = make table of higher level Entity(parent Entity) and also make table of child Entity 
+                      and user primary key of parent table as the parent key of child tables also(as a foregion key).
+
+                      in this way we can tranverse from child tables to parent tables and vise versa.
+
+        2. methode2 = make table of only child Enties and also add the attributes of parent Entity in each child tables. 
+                      problem will be that a lots of redundancy will get created in this process.
+
+    8. aggregation Entity
+        1. aggregation is to consider an already related Entities as a higher level entity and then aassigning
+           new realtion of this new higher level entity with some other entity.
+
+        2. consider there were 3 tables A , B, C which are in ternary relationship lets say.
+           now we are considering this entire group of A , B , C Entities as a single "higher level entity"
+           and making a new relationship between higher level entity and new Entity D.
+
+           to translate this in Relational model make a table which contains primary key of table D init as 
+           primary key of this new table and remaining attributes as primary keys of A , B , C.
+                
+        3. in this way we can traverse from table D to table A , B , C with the help of our newly created table.
+
+    9. unary relationship.
+        1. (1 : N) => for 1 : N mapping cardinality in unary relationship in ER model , simply add one more attribute/column 
+                      which will refeer to primary key of same table.
+
+                      ex:- in Comapany database where employee are referring to employee(called manager) so to translate this in 
+                           Relational model add one more column in employee table where each employee will 
+                           have emp_id of its manager and employee himself(who also lie in employee table as an entry)
+                           will have his employee id as null AS MANAGERS THEMSELVES DONT HAVE ANY MANAGERS FOR THEMSELVES.
+
+                     ** basically manager_id added at the end of table is a foregion key which refeers to same table instead 
+                        of referrring other table.
+
+        2. M : N => for M : N mapping cardinality in unary relationship in ER model , make a new table which will 
+                    contain primary key of both tables SO THAT WE CAN MAP EACH Entity IN A GIVEN TABLE TO OTHER ENTIRES IN 
+                    SAME TABLE.
+
+                      ex:- consider a facebook database where each person can have multiple friends and each of those friends can 
+                           also have their multiple firends.
+
+                           now both user and his friends belong to same profile_id table HENCE IT IS A UNARY RELATIONSHIP.
+
+                           and to translate this in relational model make a new table called firends 
+                           which will have 2 columns.
+                           first column is profile_id of user and other column will have 
+                           profile_id of his firend. and in this way we can traverse from one user to his friends.

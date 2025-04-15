@@ -1,0 +1,12 @@
+1. A Relational Database management System(RDBMS) is a database management system based on the relational model
+    WORD RELATION IS USED EITHER USED FOR TABLES IN A RELATION DATABASE or
+    FOR THE REALTIONS BETWEEN THOSE TABLES.
+
+2. In relational model, data is stored in relations(tables) and is represented in form of tuples(rows).
+
+
+3. RDBMS is used to manage Relational database.
+
+
+4. Relational database is a collection of organized set of tables related to each other, 
+   and from which data can be accessed easily

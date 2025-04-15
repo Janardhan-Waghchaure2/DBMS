@@ -1,0 +1,13 @@
+1. SHOW DATABASES;           => show all databases on server.
+
+2. SELECT DATABASE();        => show current database.
+
+3. DROP DATABASE database_name;  => to delete "database_name" database;
+   DROP DATABASE IF EXISTS database_name;  => to delete "database_name" database if it exists in server.
+
+4. CREATE DATABASE database_name; => to create new database;
+   CREATE DATABASE IF NOT EXISTS database_name; => to create new database if same named DB don't exists already
+   
+
+5. USE database_name;     => to select database from all databases on server.
+

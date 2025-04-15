@@ -1,0 +1,62 @@
+1. CRUD operations must be done with some integrity policy so that DB is always consistant.
+
+
+    ex:- leys say inside college DB  , a user/student is entering the data in format like 
+         name = 45 , age = "xyz" , etc... i.e entering wrong data in DB. now this will create inconsistancy
+         in DB. 
+
+    integrity constrains for above can look like below.
+            1. name of students should be string only (no integer or other data types)
+            2. age should be integer only and should be >= 18 
+            3. gender should be either "M" , "F" or "Other" and no other entires will be alloweded.
+
+    so to avoid inconsistancy like these we can make some checks ON EACH ATTRIBUTE BEFORE ADDING NEW DATA IN
+    DATABASE SO THAT inconsistancy LIKE ABOVE CAN BE AVOIDED
+
+2. Domain constrains:
+    1. Data type constrians :- data in each column should have a specific data type.
+       ex :- we can't enter string in phone number and cant enter integer in name of person.
+
+
+
+3. entity constrians
+    1. each row should have a unique primary key which should not be null.
+
+
+4. refrential constrians
+    1. we can't insert a primary key of parent table in child table IF THAT VALUE/ROW CORRSOPONDING TO THAT primary KEY DONT EXISTS IN PARENT TABLE.
+        ex:- we are inserting a foregion key as 4525 but parent table done have any primary key as 4525 
+             THIS WILL CREATE INSCONSISTANCY IN DB.
+
+        and if we try to do this then DB should throw an error.
+
+    2. we cant delete a row from parent table as it is refreaced by child table.
+
+       so DB provides us "on delete cascade" to delete the row in child table also when we delete 
+       a tuple in parent table.
+
+       but if we dont want to delte entire child table entry after deletion of parent table entry then 
+       we can simply assing null in foregion key where that delted tuples primary key were present.
+       this is called "on delete null"
+
+
+       FROM ABOVE ITS CLEAR THAT WE CAN DELETE PARENT TABLE ENTRY THEN EITHER DELETE CHILD TABLE ENTRY ALSO 
+       OR ASSIGN NULL TO IT AFTER DELETION.
+
+       AND ALSO NOTE THAT FOREGION KEY CAN BE NULL ALSO "IF PARENT TABLE'S ENTRY IS DELTED."
+
+
+5. key constrains 
+    1. not-null => key should not be null.otherwise how we will identify each row uniquely.
+
+6. unique constrians => all the entries in given column should be unique.
+
+7. default constrain => set some unique value to given attribute if not entered by user.
+        ex:- in college database if student dont enter his/her age then assign it to 18.
+
+
+8. check constrains => before entring new entry in DB check if each attribute is having value 
+                       satisfying given condition.
+
+                       ex:- before entering age of student in college DB check if age is >= 18 or not 
+                       if yes then only write it in DB or else throw an error.

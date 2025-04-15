@@ -1,0 +1,123 @@
+1. select birth date from patients table.
+
+	=> SELECT birth_date FROM patients;
+
+
+
+
+
+
+
+2. select 2 columns of first name and last name from patients table
+
+        =>   SELECT first_name , last_name from patients;
+
+
+
+
+
+
+3. count patients count where patients bith data year is 2010.
+
+
+
+	=> 1  SELECT COUNT(*) FROM patients 
+	      WHERE YEAR(birth_date) IS 2010;
+	   
+
+
+	   2  SELECT COUNT(first_name) AS tatal_patients 
+	      FROM patients 
+	      WHERE 
+		YEAR(birth_date) IS 2010;
+
+
+	   3  SELECT count(first_name) AS total_patients
+	      FROM patients
+              WHERE
+                birth_date >= '2010-01-01'
+                AND birth_date <= '2010-12-31';
+
+
+
+4. select the first_name , last_name , height of the person whose height is max.
+
+	=>  1  SELECT first_name , last_name , height 
+	       FROM patients
+	       WHERE height == (
+  			SELECT MAX(height) from patients
+	       );
+
+
+
+
+
+
+5. Show first name, last name, and gender of patients who's gender is 'M'
+
+
+	=> 1. SELECT first_name , last_name , gender 
+	      FROM patients
+              WHERE gender == 'M';
+
+
+
+6. show all the columns for the patients where patient_id is 1, 45, 534, 879, 1000.
+
+	=> 1.  SELECT * 
+	       FROM patients
+	       WHERE (
+  	           patient_id == 1 or patient_id == 45 or 
+                   patient_id == 534 or patient_id == 879 or 
+                   patient_id == 1000
+               );
+
+           2. SELECT *
+	      FROM patients
+	      WHERE
+ 		  patient_id IN (1, 45, 534, 879, 1000);
+
+
+
+7. given count of all rows of table.
+	
+	=> SELECT count(*) AS total_count
+	   FROM table_name;
+
+
+
+8. select all columns from admission table where admission data 
+   is same as discharge date.
+
+	=> SELECT * 
+	   FROM admissions
+	   WHERE admission_date == discharge_date;
+
+
+	
+
+9.Show the patient id and the total number of admissions for patient_id 579.
+
+	=> SELECT
+  		patient_id,
+  		COUNT(*) AS total_admissions
+	   FROM admissions
+	   WHERE patient_id = 579;
+
+
+
+
+10.Based on the cities that our patients live in, show unique cities that are in province_id 'NS'?
+
+
+	=>  1  SELECT DISTINCT city
+	       FROM patients
+	       WHERE province_id == 'NS';
+
+	    2  SELECT city
+	       FROM patients
+               GROUP BY city
+               HAVING province_id = 'NS';
+
+
+

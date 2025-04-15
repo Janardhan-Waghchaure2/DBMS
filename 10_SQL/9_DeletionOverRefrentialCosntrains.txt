@@ -1,0 +1,57 @@
+1. if we delete parent tables row then child table row will be pointing to the primary key 
+   of parent table which don't exists so in that case there are 2 solutions for that.
+        1. delete ALL the child rows which were pointing to the deleted primary table rows => ON DELETE CASCADE 
+        2. assign null on the child rows which were pointing to the delted primary table rows => ON DELETE SET NULL
+
+
+2. consider  a Customer table with id as the primary key.
+
+    CREATE TABLE Customer(
+        id INT PRIMARY KEY,
+                .
+                .
+                .
+                .
+                .
+   );
+
+   and also consider below Order table which refrances to Customer table through FOREIGN key.
+
+   CREATE TABLE Order(
+        order_id INT PRIMARY KEY ,
+                .
+                .
+                .
+                .
+                .
+        FOREIGN KEY(cust_id) refrances Customer(id) ON DELETE CASECASE 
+   );
+
+   now whenever we delete some customer from database then the orders which were pointing 
+   to those customers will also get deleted.
+
+3. consider  a Customer table with id as the primary key.
+
+    CREATE TABLE Customer(
+        id INT PRIMARY KEY,
+                .
+                .
+                .
+                .
+                .
+   );
+
+   and also consider below Order table which refrances to Customer table through FOREIGN key.
+
+   CREATE TABLE Order(
+        order_id INT PRIMARY KEY ,
+                .
+                .
+                .
+                .
+                .
+        FOREIGN KEY(cust_id) refrances Customer(id) ON DELETE SET NULL 
+   );
+
+   now whenever we delete some customer from database then FOREGION KEYS of the orders which were pointing 
+   to those customers will be set to null.

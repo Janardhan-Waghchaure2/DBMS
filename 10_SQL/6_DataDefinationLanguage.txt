@@ -1,0 +1,100 @@
+1. primary key(PK) constrains
+   1. PK should not be null(because then how will we identify each row uniqly)
+   2. it should be unique value for each row 
+   
+2. it's a good practice to make primary key of integers. 
+   as they are fast to search,etc..
+
+
+3. there are 2 ways to define primary key as below.
+
+    CREATE TABLE table1(
+
+        field_1 INT ,
+        field_2 INT ,
+        field_3 INT ,
+            .
+            .
+            .
+        PRIMARY KEY(field_1)
+
+    );
+
+    CREATE TABLE table2(
+
+        field_1 INT PRIMARY KEY,
+        field_2 INT ,
+        field_3 INT ,
+            .
+            .
+            .
+
+    );
+
+
+4. FOREGION KEY(a key which referrers to the primary key of other table)
+   syntax:-
+
+   consider a "Customer" table with primary key "id" 
+
+   CREATE TABLE Order(
+
+        id INT PRIMARY KEY , 
+        field_1 type1 , 
+        field_2 type2 , 
+        field_3 type3 , 
+             .
+             .
+             .
+        FOREGION KEY (cust_id) REFRANCES Customer(id)
+
+   );
+
+   above syntax will create an extra column named as "cust_id" which will reffer to 
+   primary key of Customer table.
+
+    ** an attribute can be a primary key and FOREGION key at same time.
+
+5. UNIQUE keyword.
+   if we have a constraint that each value of a perticular attribute should be unique then 
+   ADD UNIQUE KEYWORD infront of attribute name.
+
+   CREATE TABLE Order(
+
+        field_1 type1 , 
+        field_2 type2 UNIQUE, 
+        field_3 type3 
+
+   );
+
+   above syntax will make field_2 to be unique. 
+   DB will not allow an duplicate value to enter in DB for field_2 attribute.
+
+6. CHECK and CONSTRAINT keyword.
+
+   CREATE TABLE Student(
+
+        age INT , 
+        field_2 type2 , 
+        field_3 type3 ,
+
+        CONSTRAINT ageCheckConstraint CHECK(age >= 18) 
+
+   );
+
+   above syntax will make an constraint on the age(constraint name = "ageCheckConstraint") of student i.e if age of student is 
+   < 18 then it wont be alloweded to enter in database.
+
+   
+
+7. DEFAULT keyword
+   ** used to give some default value to attribute if it's not provided explicitly.
+
+   CREATE TABLE Account(
+
+        balance INT DEFAULT 0, 
+        field_2 type2 , 
+        field_3 type3 
+   );
+
+    if value of account balance is not provided then it will take default value of 0.

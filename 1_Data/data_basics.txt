@@ -1,0 +1,31 @@
+1. singular form of data is datum , which is the fundamental unit of data.
+   multiple of datums forms the data.
+
+2. DATA is collection of bits stored in memory.
+   multiple of bits forms Bytes/Data.
+
+   note that raw data(LIKE TEXT , IMAGES , AUDIO , VIDIO , ETC FILE) stored inside the memory  dont have any meaning assigned to it.
+   when that raw data/bits are processed then it is converted into the useful information.
+
+-------------------- data VS information ----------------------
+3. DATA = RAW DATA LIKE TEXT , IMAGES , AUDIO , VIDIO , ETC FILE (bits and bytes in terms of digital computer)
+   INFORMATION = processed data (when we organize and make patterns in given data)
+
+   ex:- lets say we have a bunch of numbers(34,56,67,34,73,...) stored in computer THIS IS CALLED DATA (numeric data)
+        now this data itself is useless but when we process it then it becomes
+        information.
+
+        so when we say that above numbers are marks obtained by students.
+
+        ex:- who is topper of all student => information which is created from data.
+             what's the average marks of students => information which is created from data.
+             who are top 10 rankers in class , etc...
+   
+        so in this way simple plane number don't have any meaning assisnged to it
+        but when we process it THEN IT FORMS THE INFORMATION WHICH IS MEANINGFUL.
+  
+   ex:- 19042001 is just a random number but when we assingn meaning to it then it becomes information
+        information = above number is birth data = 19/04/2001
+
+---------------------------------------------------------------
+

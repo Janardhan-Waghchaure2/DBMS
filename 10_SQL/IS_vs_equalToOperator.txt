@@ -1,0 +1,8 @@
+1. = symbol is used to check whether 2 values are equal or not.
+
+2. "IS NULL" or "IS NOT NULL" is used for checking if some column dont have any value init
+   NOTE THAT NULL IS NOT A VALUE ITS A NOTATION WHICH SHOWS THAT THERE IS NOTHING
+   STORED INSIDE THE COLUMN. HENCE WE CANNOT USE = OEPRATOR FOR CHECKING IF SOME
+   COLUMN HAVE NULL VALUE IN IT.
+
+   we use IS NULL to check if some column is column is having some value init.

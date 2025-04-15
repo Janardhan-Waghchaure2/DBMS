@@ -1,0 +1,14 @@
+1. lets say 3 enties job , employee and branch are in a ternary relationship.
+
+2. now we wants to add a manager entity in DB which will manage all above 3 enties.
+   now to do that we have to assingn one more relationship on top of previous 
+   ternary relationship , making the whole relationship  a quaternary relationship(
+   relationship with manager added to above 3 entities).
+
+3. so to avoid the complexity , we can put the job , employee , branch in one box 
+   and say it as a higher level entity and then simply assign "manages" relationship
+   between this box and manager entity then it will be more clear to understand and to 
+   represent on ER-diagramme.
+
+   THIS THING IS CALLED AGGREGATION. i.e we hide the underlying complexity of relationship
+   by putting the whole thing in a box and represeting new relationship with that new entity in ER-diagramme

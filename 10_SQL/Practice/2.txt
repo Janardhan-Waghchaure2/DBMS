@@ -1,0 +1,48 @@
+1.Write a query to find the first_name, last name and birth date of patients who has height greater than 160 and weight greater than 70
+
+
+	=> SELECT first_name , last_name , birth_date 
+	   FROM patients 
+	   where height > 160 AND weight > 70;
+
+
+2.Write a query to find list of patients first_name, last_name, and allergies from  Hamilton city where allergies are not null
+
+
+	=> SELECT 
+		first_name , 
+    		last_name , 
+    		allergies
+	   FROM patients
+	   WHERE 
+		city IS 'Hamilton' 
+    		AND allergies IS NOT null; 
+
+
+
+3.Based on cities where our patient lives in, write a 
+ query to display the list of unique city starting with a vowel (a, e, i, o, u). 
+ Show the result order in ascending by city.
+
+
+        => SELECT DISTINCT city
+	   FROME patients
+	   WHERE
+	     (
+		city LIKE 'a%' OR 
+        	city LIKE 'e%' OR
+        	city LIKE 'i%' OR 
+        	city LIKE 'o%' OR 
+        	city LIKE 'u%'
+    	      )
+	   ORDER BY city;
+
+4. concat first name and last name to represent full of patient
+
+
+	=> SELECT CONCAT(first_name, ' ' ,last_name)
+	   AS full_name
+	   FROM patients;
+
+
+

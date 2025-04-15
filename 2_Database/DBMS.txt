@@ -1,0 +1,36 @@
+1. DBMS = Database Management System.
+   i.e DBMS is a piece of software which manages the database.
+       ex:- like os manages all the processes running in the computer in same way  DBMS 
+            manages the database.
+
+    note that DATBASE and DBMS are 2 different things.
+    Database is the place which stores the data whereas DBMS is the piece of code(SET OF PROGRAMMS) which 
+    helps us to access , manage , update , delete , create the data in database (IN A FASTER WAY).
+
+
+    ex:- in given data base of students in a school , to add a new student in our database we need a function/methode
+         to add a new data point in database THIS METHODE IS PROVIDED BY THE DATABASE.
+
+
+
+2. objective/goals of DBMS
+    1. Mass Storage :- DBMS allows to store huge data or very less data also (i.e it works on all scales of data)
+    
+    2. Removes Duplicity :- as database scales chances of duplicate data points in database increases.
+                           DBMS dont allows such datapoints to enter in database.
+
+    3. Multiple Users Access :- DBMS allows Multiple users to concurrently manipulate the database without any 
+                                creating any errors in data.
+
+    4. Data Protection :- access to sensative info. like password , bank details ,etc.. needs to be restricted for 
+                          some specific users and DBMS helps to achive that.
+
+    5. Data Back up and recovery :- in case of any failure to database there should be an backup for database and 
+                                    dbms provides this backup.
+
+    6. Integrity :- Integrity means your data is authentic and consistent. DBMS has various validity checks that 
+                    make your data completely accurate and consistence.
+
+    7. Platform Independent :- One can run dbms at any platform. No particular platform is required to work on database management system
+
+    8. SPEED :- all the create , read , update , delete options should be perfomed in faster way.

@@ -1,0 +1,126 @@
+--------------------------------- SELECT clause -------------------------
+** used to select the rows and columns from given table.
+
+1. SELECT * FROM table_name;
+   => returns all the columns and all rows from table_name table
+
+
+2. SELECT attribute_name FROM table_name;
+   => returns specific column(attribute_name column) from table_name table
+
+
+3. SELECT attribute_name1 , attribute_name2 FROM table_name;
+   => returns only 2 columns , in same way we can return more
+     columns at same time. 
+
+
+4. SELECT * FROM table_name LIMIT 3;
+   => shows only first 3 results out of n total results.
+      or above command limits the total results by the passed number.
+
+
+-------------------------- WHERE clause --------------------
+** used to select specific entries/tuples/rows where specific condition is met
+
+6. SELECT attribute_name1 , attribute_name2 
+   FROM table_name 
+   WHERE attribute3 <= value3;
+
+
+   => SELECT with some specific condition. we can use any of comparison and logical
+      operators for the query shown below;
+
+8. SELECT * 
+   FROM table_name 
+   WHERE attribute_name = "value";
+
+   => select all the rows where attribute_name have value = "value"
+
+
+-------------------------- BETWEEN clause --------------------
+** used to select the rows whose values lies between the max and min.
+
+1. SELECT * 
+   FROM table_name  
+   WHERE age BETWEEN 18 AND 35;
+  
+   => select all rows where age is between 18 and 15.
+      ** note that numbers are inclusion in BETWEEN clause.
+         i.e rows with age from >= 18 and  <= 35 will be selected.
+
+
+-------------------------- IN clause -------------------------
+** used to reduce OR statements and to make query smaller and readable.
+
+
+
+1. SELECT * 
+   FROM table_name 
+   WHERE attribute_name IN (value1,value2,value3);
+
+    
+
+  => select all the rows where attribute_name have same value as in the parenthesis(i.e value1,..,value3)
+
+   if we dont use IN clause then we have to use too much syntax like below
+   SELECT * 
+   FROM table_name 
+   WHERE attribute_name = value1 OR attribute_name =  value2 OR attribute_name = value3;
+
+
+2. SELECT * 
+   FROM table_name 
+   WHERE attribute_name NOT IN (value1,value2,value3);
+
+  => select all the rows where attribute_name dont belong to value1 or value2 or value3
+
+
+-------------------------- IS NULL clause -------------------------
+** to select all the rows which have null values for some attributes.
+
+1. SELECT * 
+   FROM table_name 
+   WHERE attribute_name IS NULL;
+
+   => select all the rows whose attribute_name is having value of null.
+
+2. SELECT * 
+   FROM table_name 
+   WHERE attribute_name IS NOT NULL;
+
+   => select all the rows whose attribute_name is having non-null value.
+
+
+
+-------------------------- Sorting ------------------------
+** sorting of column is done by ORDER BY keyword.
+
+1. SELECT * 
+   FROM table_name 
+   ORDER BY attribute_name ASC; 
+   
+   ** without ASC also everything will work fine as by default ORDER BY sorts in ascending order.
+   
+   => SHOWS sorted rows by considering attribute_name in asscending order.
+
+
+2. SELECT * 
+   FROM table_name 
+   ORDER BY attribute_name DESC;
+
+   
+   => SHOWS sorted rows by considering attribute_name in descending order.
+
+
+   ASC => asscending order 
+   DESC => descending order
+
+
+-----------------------------------------------------------------------------------------------------------
+
+1. LOGICAL OPERATORS => AND , OR , NOT
+2. COMPARISON OPERATORS => < , > , <= , >= , = , <> 
+3. note that order of execition of SELECT attr1, attr2 FROM table_name starts from right to left.
+   i.e firstly "from which table to select from" is decided then "which columns to select" is decided 
+       and then "which rows to be selected"(if where clause is present)
+ 

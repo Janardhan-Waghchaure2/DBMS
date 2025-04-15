@@ -1,0 +1,6 @@
+1. schema of database defines the structure/design of database.
+
+2. physical schema => for physical level of  DB => algorithms for storing data , compressions and decompressions , optimal data structure for data storage ,etc.
+   logical schema => for logical level of DB => attributes of DB , consistancy constrains , relationships between tables 
+   view schema => for view level of DB  => attributes which will be visible for given users.
+

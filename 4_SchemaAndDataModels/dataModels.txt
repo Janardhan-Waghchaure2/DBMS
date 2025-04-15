@@ -1,0 +1,37 @@
+1. data models is a way through which we can descirbe the design of DB at logical level.
+
+   ** DATA MODELS ARE ALL ABOUT LOGICAL LEVEL OF DATABASE **
+
+2. it provides conceptual understanding of data , data relations , data semantics , consistancy constrains.
+
+3. types of Data Models 
+    1. ER model.
+    2. Relational model.
+    3. Object Oriented model.
+    4. Object-Relational model.
+
+------------- Database Lagnuages ------------------
+
+1. to interact with Database we need a Lagnuage.
+
+2. types of database Lagnuages.
+   1. DDL :- Data defination Lagnuage => to desing the schema(logical schema) of DB.
+   2. DML :- Data manipulation Language => to create , read , update , delete data in database.
+   3. DQL :- Data Query Language => to Query info from database(part of DML).
+   4. DCL :- Data control Lagnuage => Data Administrator uses DCL to handle the access of info/data across all users of database.
+
+
+   NOTE :- there are no 2 seperate languages for DDL , DML , DQL and DML both comes packed together in SQL(Structured Query Lagnuage)
+
+3. whenever we write applications then they are noramlly in javascript, c/c++ ,python , java ,etc.. but databases understand 
+   SQL hence for each languages there is an API(application programme interface) which allows communication between database and 
+   given programming language.
+
+
+   ex:- java have JDBC(Java Database Connctivity) to fetch from DB with java syntax.
+        c/c++ have ODBC to  to fetch from DB with c/c++ syntax.
+
+4. database Administrator :- A database administrator is a technical guardian of data. 
+   With the assistance of database administration, the administrator manages the data resources for different 
+   applications and purposes. It includes: Database Performance and Monitoring, and so much more
+

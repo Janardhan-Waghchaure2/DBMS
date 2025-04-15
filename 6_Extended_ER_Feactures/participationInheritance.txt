@@ -1,0 +1,2 @@
+1. if parent entity is in relationship with some other entity , then child entities
+   will be also involved in those entities.

@@ -1,0 +1,38 @@
+diffrence between database and dbms.
+
+0. DBMS is the inteface/software layer between database and users.
+   users or apps dont directly use database to commands to DBMS and then 
+   DBMS does required things to fullfill requirements.
+
+1.	Definition	
+    A database is a collection of connected information about people, locations, or things. 
+	A database management system (DBMS) is a collection of programs that allow you to create, manage, and operate a database.
+
+
+2.	Storage	
+    Besides computers, databases can even be maintained in physical ledgers, books, or papers.	
+    In a database management system (DBMS), all the records are maintained only on a computer.
+
+
+3.	Data Retrieval	
+    The retrieval of information from the databases can be done manually, through queries, or by using programs (C, C++, Java, etc.).	
+    We can retrieve the data from the database management system through queries written in SQL.
+
+4.	Speed	
+    As databases can be handled manually or via computers, when SQL is not used to retrieve information, it can be very slow.	
+    As a computer system is involved in a database management system, the retrieval of information is very quick.
+
+5.	Access	
+    The databases are not designed for a large number of people who can access data at the same time, rather it is designed for a very small number of people (preferably few people) who access data at different times.	
+    The database management system is designed for a large number of people who can access the data at the same time.
+
+6.	Data	
+    Data is stored in databases. 	
+    A database management system (DBMS) manages and manipulates data.
+
+7.	Data Manipulation	
+    In the case of the databases, very less information can be modified at a time.	
+    In the database management system (DBMS), a lot of information can be changed at one time (as it can have many users using it at the same time).
+
+8.	Backup and Recovery	The databases do not ensure that the data will be available after failure arises.	
+    The database management system (DBMS) ensures that the data will always be available even after system failures.

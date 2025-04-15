@@ -1,0 +1,15 @@
+1. conversion of ER to Relational model.
+    1. entity name becomes table name.
+
+    2. attributes of ER becomes column names of Relational model.
+
+    3. note that primary key attributes of ER models are kept as first column in  
+       Relational model.
+
+    
+2. now tables can be made from given ER model , but how to implement the relashionship betweeen 
+  the entities.
+
+  THAT WE DO WITH HELP OF THE FOREGION KEYS. 
+  I.E WE PLACE PRIMARY KEY OF OTHER TABLE IN OUR GIVEN TABLE (BUT ADDING ENTIRE NEW COLUMN OF FOREGION KEY)
+  SO THAT EACH ROW/TUPLE OF FIRST TABLE WILL BE ASSOCIATED WITH EACH entity OF OTHER TABLE. 

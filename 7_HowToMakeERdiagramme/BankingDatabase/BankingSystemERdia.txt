@@ -1,0 +1,86 @@
+requirements of Banking System DB.(get this with requirement engineering)
+    1. There will be multiple branches of the bank.
+    2. customer entities.
+    3. customers have accounts and they can take loans also.
+    4. each customer will be associated with some banker(Employee of bank).
+    5. bank is having some Employees.
+    6. accounts are of 2 type 
+        1. savings 
+        2. current
+    7. loan is originated by some specific branch.
+    8. a loan can exists on one or more customer. 
+       (i.e a loan is taken collboratively over 2 or 3 or more customers.)
+
+
+step1 :- identify entities
+    1. branch
+    2. customer
+    3. Employee
+    4. savings account
+    5. current account
+    6. loan 
+    7. loan payment(weak entity)
+
+
+step2 :- identify attributes    
+    1. branch           => name(primary_key) , assets  , liabilities
+    2. customer         => cust_id(primary_key) , name , address(composite attributes) , contact_no(multivalued attribute) , DOB , age(derived attributes)  
+    3. Employee         => emp_id(primary_key) , name ,contact_no , depedant_name(multivalued) , starting_date , year_of_serive(derived attribute) 
+    4. savings account  => acc_number(primary_key) , balance , interest_rate , daily_withdrawal_limit.
+    5. current account  => acc_number(primary_key) , balance , interest_rate , pretransactionCharges , overdraftAmount.
+    6. loan             => loan_number(primary_key) , amount 
+    7. loan payment     => payment_number , date , amount
+
+
+step3 :- relationship and constraints
+    1. customer borrow loan.
+        1. mapping cardinality constrins:
+            M : N => one person can hold N loans and one loan can be shared over M people
+        
+        2. participation constrains:
+            loan will be in total participation as loan can't exists without customer 
+            customer will be in partial participation as there could be a customer without loan.
+
+    
+    2. loan originated-by branch.
+        1. mapping cardinality constrins:
+            N : 1 => one loan can be originated by only one branch but one branch can originate multiple loans.
+        
+        2. participation constrains:
+            loan origination can't exists without branch hence loan will be in total participation.
+            but branch can exists without existance of loan hence branch will be in partial participation.  
+
+    
+    3. loan loan-payment payment.
+        1. mapping cardinality constrins:
+            1 : N => one loan can have multiple payments but a given payment can only occur for 1 loan.
+        
+        2. participation constrains:
+            loan can exist without paymet(i.e you have taken the loan but you are not paying) hence laon is partial participation.
+            but loan-payment can't exists without loan (why would you pay if you haven't taken money from bank) hence loan-payment 
+            is in complete participation
+
+    
+    4. customer deposit account.
+        1. mapping cardinality constrins:
+            M : N => one customer can have multiple accounts and multiple accounts can be shared over multiple people(this is called joint account).
+        
+        2. participation constrains:
+            both will be in partial paritcipation as none of them can exists without other.
+
+    
+    5. customer banker Employee.(i.e each customer will have an bank person assigned to do bank related things)
+        1. mapping cardinality constrins:
+            N : 1 => one customer can have only one bank employee assigned.
+            and one bank employee can have multiple customers assigned to him/her. 
+
+        2. participation constrains:
+            both will be in partial paritcipation as none of them can exists without other.        
+    
+    6. employee manged-by employee.(unary relationship)
+        1. mapping cardinality constrins:
+            N : 1 => one employee is managed by only one employee(called manager) and one manager can have multiple 
+                     employee which he have to manage 
+
+        2. participation constrains:
+            both will be in partial paritcipation as none of them can exists without other.        

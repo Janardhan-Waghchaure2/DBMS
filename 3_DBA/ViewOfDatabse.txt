@@ -1,0 +1,8 @@
+1. Abstraction is one of the main features of database systems. 
+
+2. Hiding irrelevant details from user and providing abstract view of data to users, 
+   helps in easy and efficient user-database interaction
+
+3. in three level of DBMS architecture, The top level of that architecture is “view level”. 
+   The view level provides the “view of data” to the users and hides the irrelevant details 
+   such as data relationship, database schema, constraints, security etc from the user.

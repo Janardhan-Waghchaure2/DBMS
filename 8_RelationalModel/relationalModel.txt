@@ -1,0 +1,72 @@
+1. relational model is used to describe the Database in terms of tables and their relationships.
+                    OR 
+    relational model organizes the given data in form of tables. 
+
+   it is similar to ER model except in ER model we draw entities and their relationships visually and in relational model 
+   we make tables(analogous of entities in ER model) and their relationships among.
+
+   
+
+2. in relational model there are multiple tables(each of them having unique names assigned to them) which are related to each other OR tables have relationships amongs themselves.
+    ex:- an college database will have tables like.
+        1. Students 
+        2. subjects 
+        3. professors 
+        4. Exams , etc... which are are related to each other.
+
+
+    IN RELASHIONAL MODEL TABLES ARE CALLED AS "RELASHION" hence the database mode is called relational model 
+    as we are having multiple of tables/Realshions
+
+
+3. each table have their rows and columns.
+
+4. columns represents the attributes of given table/entity.
+
+5. rows / tuples represents data of one data iteam.
+
+    ex:- in table of Students each row represents one student and each column represents attributes related to Students.
+    ex:- in table of Proffesor each row represents one Proffesor and each column represents attributes related to Proffesor.
+    ex:- in table of subjects each row represents one subject and each column represents attributes related to subject.
+
+6. Degree fo Table => no. of Attributes in table.
+
+    ex:- lets say Students table have attributes/columns like name , surname , age , student_id
+         then Degree of table = 4.
+
+
+7. Cardinality of Table = no. of row/tuples in  a given table.
+
+   i.e Cardinality is basically represents HOW MANY DAPOINTS ARE THERE IN GIVEN DATABASE.
+    
+    ex:- if Cardinality of Studnets table is 6 , it means database contains information of 6 students.
+
+8. every database is designed in 2 steps.
+    1. design of ER model 
+    2. design of Relational model (i.e creating tables and relations among them)
+
+
+------------------------ Relational/Table Schema ----------------------
+1. Schema = structure/design of DB.
+
+2. relashionship Schema defines the design and structure of relashions/table(i.e atrtibutes in given table and their types etc..) 
+   ex:- inside the College databse where only 2 tables eixists the schema for those relations/tables will look like below 
+
+       Students (std_id , first_name , last_name , age) => relashional schema of Studnets relashion 
+       Proffesor (prf_id , first_name , last_name , age) => relashional schema of professor relashion
+
+
+
+
+------------------------- imp. properties of relashions/tables -----------------
+
+1. name of each relashion/table should be unique.
+2. values must be atomic(i.e we can't break down the values furthur)
+    ex:- if we make table with fullname column then its wrong because full name can be broken into 
+         first_name , middle_name , last_name HENCE THIS COLUMN IS WRONG INSTEAD MAKE 3 COLUMNS first_name , middle_name , last_name 
+
+3. each attribute must be unique.(dont make 2 attributes with same name)
+4. each tuple/row must be unique. i.e now 2 rows should have same primary key.
+5. the sequence of attribute dont have any significance.
+    i.e it dosent matter if we swap first row and last row of table as it dosent change anything.
+6. tables must follow intigrity constrains.

@@ -1,0 +1,26 @@
+1. 
+  CREATE TABLE table_name1(
+	attr1 type1,
+	attr2 type2,
+
+	PRIMARY KEY(attr1 ,attr2), // => composite key formed by attr1 and attr2
+  	FOREIGN KEY(attr1) REFRENCES table_name2(attr1)  ON DELETE CASCADE;
+  );
+After deleting the row of table_name1 , all the rows of table_name2 where
+attr1 was the PRIMARY KEY, WILL GET DELETED.
+
+
+2. 
+  CREATE TABLE table_name1(
+	attr1 type1,
+	attr2 type2,
+
+	PRIMARY KEY(attr1 ,attr2), // => composite key formed by attr1 and attr2
+  	FOREIGN KEY(attr1) REFRENCES table_name2(attr1)  ON DELETE SET NULL;
+  );
+
+After deleting the row of table_name1 , all the rows of table_name2 where
+attr1 was the PRIMARY KEY, WILL BECOME NULL.
+
+
+

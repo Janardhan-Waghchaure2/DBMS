@@ -1,0 +1,10 @@
+1. hiding of internal working details and only providing necessory interface/tools to user is called as abstraction.
+   
+    ex:- when we open calling app and call someone we dial number and call but how interanlly working WE DONT KNOW.
+        ALL OF THIS DETAILS ARE HIDDEN FROM USER "BECAUSE ITS UNNECESSORY FOR USER".
+    
+    ex:- while driving car we just need to control sterring , gas , brake ,gears , clutch , etc. we dont know how 
+        interanlly everything is working to drive the whole car forward.
+
+2. in same way DBMS also hides how data is created , readed , updated , deleted in level of electronics.
+   DBMS SIMPLY PROVIDES US SOME COMMANDS(SQL SYNTAX) TO INTERACT WITH DATABASE WITHOUT GIVING IMPLEMENTATIONAL DETAILS. 

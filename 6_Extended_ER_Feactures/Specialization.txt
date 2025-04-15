@@ -1,0 +1,36 @@
+1. lets say in a database there are 3 entities as person ,  employee and customer.
+   and their attributes are as follows
+
+   person :- name , address , phone_number.
+   employee :- name , address , salary , job_role.
+   customer :- name , address , gender , purchasing_capacity.
+
+
+2. now if we create seperate 3 entities in database then name , address will be unnecessorly created in person and customer
+   as it is already present in superclass person. THIS WILL UNNECSSORY STORE THE SAME DATA AGAIN AND AGAIN RESULTING IN NEED OF 
+   BIGGER STORAGE CAPACITY. HENCE TO REDUCE THE SPACE/MEMORY WE USE "specialization FEACTURE" OF ER-DIAGRMMEE. 
+
+   hence we can relate customer and employee with person in ER diagramme with specialization.
+
+   ** this is similar to inheritance in OOPS , where child class can access parent class attributes.
+
+3. relationship of specialization is represented by inverted triangles.
+
+4. specialization uses "is-a" relationship.
+    ex:- person "is-a" customer
+         person "is-a" employee
+         person "is-a" Teacher , et...
+
+    where person lies on top of inverted triangle and customer , employee , Teachere lies on bottom of triangle 
+    in ER diagramme.
+
+5. we can also do multiple level of specialization , i.e multiple level of "is-a" relationship
+   ex:- Person "is-a" Engineer , Engineer "is-a" mechanical Engineer
+
+
+6. specialization is a "Top-down" Approch of Thinking.
+
+   ex:- we had a person entity then we found that we are unnecessorly adding attributes like salary 
+   job_role , purchasing_capacity , etc. on person which don't represent person entity.
+
+   hence we created employee and customer entities. i.e top down Approch.

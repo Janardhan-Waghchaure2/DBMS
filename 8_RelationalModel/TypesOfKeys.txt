@@ -1,0 +1,84 @@
+1. Key is a attribute/column or set of attribute which is used to identify a specific row in a given  Table/Relation
+
+2. common key types in Relational Modal are
+      1. Primary Key 
+      2. Surrogate Key    
+      3. Natural Key     
+      4. Foreign key 
+      5. Composite Key   
+      6. Super key
+      7. Candidate key    
+      8. Alternate key 
+      9. compount key 
+
+
+
+1. PRIMARY KEY is the key which is a unique value assigned to every row 
+   it is used to identify the row uniquely.
+
+   PRIMARY KEY IS THE "FINAL SHORTLISTED KEY FROM Candidate KEYS" which is having least attributes possible 
+   to uniqly identify each row. 
+
+   SO NO 2 PRIMARY KEYS COULD BE SAME , NOTE THAT A PRIMARY KEY COULD BE A NUMBER,
+   STRING , ETC. IT JUST HAVE TO BE UNIQUE.
+
+
+
+
+2. SURROGATE KEY/artificial key / identity key => it is a key which is system generated UNIQUE
+   KEY , which dont have any semantic/meaning to actual user.
+   ex:- keys like 100,102,103,104 assigned to a table of employee data are not related to any of
+   employee this are just some system generated numbers which uniquely identifies each row of employees.
+
+   NOTE THAT IN SURROGATE KEY WE DONT USE ANY OF USERS DATA , WE JUST GENERATE SOME RANDOM NUMBER AND
+   TEXT(WHICH IS UNIQUE / NON-DUPLICATE) AND ASSIGN IT WITH A ROW.
+
+3. Natural key => it is a attribute of users data WHICH IS UNIQUE FOR EACH USER.its exactly opposite of 
+   surrogate key where keys are not from user data instead system generated.
+   ex:- we can take email id of users as a natural key , as it will be unique for each user.
+        we can prn number of student as natural key as it will be unique for each student.
+
+
+4. Foregion Key=> it is a atribute of users data which is used to map/connect given table with some other table.
+  		Or
+   A FOREGION KEY IS THE KEYS WHICH DEFINES RELATIONSHIP BETWEEN TABLES
+                OR
+   A FOREGION KEY IS THE PRIMARKY KEY OF SOME OTHER TABLES(IN SAME DATABASE) which then connects that other table/ralation
+   with the given table
+
+   Table/Relation whose Primary key is placed in other table is called   parent table .
+   Table/Relation in which parent key of other table is placed  is called child table.
+
+5. Composite Key => it is a key which forms by combining multipke keys of the table
+   ex:- if a table have 2 fields/attributes/columns as name and age then our composite key will look like
+        jay23 , jana20 , rahul19 , etc(i.e combining name and together to form a new key)
+  
+  why composite keys => if a single key can uniqly identify the give row(ex:- name and age of 2 persons can be
+  same for 2 peple in a table) hence we combine them uniquly to form a "unique key"
+
+
+      	  
+6. super key => it is a set of one or more attributes/columns of tables used to uniqly identify the each row/tuple of table.
+   ex:- lets say a table have 3 attribute A , B , C then any one the below could be the super key of table.
+
+   super keys  = {A} , {B} , {C} , {A , B} , {B , C} , {A , C} , {A , B , C} , etc... 
+
+   Note :- 1. of A , B , C are themselves can't rerpesent a row uniqly (ex:- name of 2 people can be same) then it can't form super key.
+           2. super key can be null also as , super keys is superset of all possible keys hence null is also a possible key.
+   SUPER KEY IS BASICALLY SUPERSET OF ALL POSSIBLE KEYS. 
+
+
+7. Candidate key => it is minimum subset of super keys which don't have any redundant attributes in them.
+
+   ex:- in all the super keys if there was name of person in each of them , then Candidate keys will be all those keys 
+   which dont have person name in them AS IT IS A redundant PART OF THE KEY.
+
+   Candidate key is BASICALLY subset of super key which we get after removing redundant attributes.
+
+
+8. Alternate key => all the keys except Primary key(which we finally selected from Candidate keys) 
+                    inside the Candidate key are called alternate keys.
+                    as all of them can uniquely identify each row.
+
+9. compount key => keys formed by combining 2 Foregion keys.
+                  

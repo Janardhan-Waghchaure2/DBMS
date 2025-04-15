@@ -1,0 +1,16 @@
+WE CAN NESTE MULTIPLE SELECT STATEMETS IN EACH OTHER TO SEARCH
+PERTICULAR DATA.
+basically inner select statement searches the some chunk of information
+and then outer select statement searches some other chunk of information
+based on inner select statements output.
+
+
+syntax:
+    SELECT attr1 , attr2 FROM table1
+    WHERE table2.attr3 IN (
+	SELECT attr4 FROM table3 
+	WHERE attr5 > value5 //=> THERE COULD BE ANY CONDITION AFTER WHERE CLAUSE.
+    );
+
+** in case of nested queries , inner queries are resoved first
+   then outer queries are resolved. 

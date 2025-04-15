@@ -1,0 +1,87 @@
+0. Relationaship is association between 2 or more entities in given database.
+
+1. in a given Database there are always multiple entities.
+   ex:- in a given Banking Database there are entities like 
+        1. Customers
+        2. Loan 
+        3. Account , etc..
+
+    and each of these entities are related to each other.
+
+    ex:- 
+        Customers borrow Loan  => borrow is relationship between Customers and Loan
+        Customers deposit Account => deposit is relationship between Customers and Account
+
+    SO entities IN GIVEN DATABASE MAY BE CONNECTED TO EACH OTHER.
+
+
+2. Degree of Realation => how many entities are there in a perticular relationship.
+
+    1. unary relationship. => only one entity
+        relationship between employee entity and manager entity is unary
+        as manager is also an employee and manager handles also employee.
+
+    1. binary relationship. => 2 entities are there 
+        student and subject objects relation.
+
+        MOSTLY RELATIONSHIP'S ARE binary NOT unary OR ternary.
+
+    1. ternary relationship. => 3 entities are there 
+        consider 3 entities as employee , Job , Branch.
+
+        now every employee works on a Job and on a Branch.
+
+
+
+3. relation constrains.
+    1. Mapping cardianlity / cardianlity ratio.
+
+        1. one to one(1 : 1) :- Each entity of Entity set A is associated with at most one entity of entity Set B.
+                         i.e Each row of Table A is associated with at max one row of Table B.
+
+                ex:- for a goverment database , each person entity is associated with only one adhar card entity.
+
+        2. one to many(1 : N) :- Each entity of Entity set A is associated with one or more entity of entity Set B.     
+                         i.e Each row of Table A is associated with one or more row of Table B , BUT EACH ROW OF B 
+                             SHOUD BE ASSOCIATED TO ONLY ONE ROW OF TABLE A.
+
+                ex:- inside a vehicle database , each person entity can have one or more car entity , but each car belongs 
+                     to only one owner.
+
+        3. many to one(N : 1) :- Multiple entities of Entity set A is associated with one entity of entity Set B.     
+                         i.e Multiple rows of Table A is associated with one row of Table B.
+
+                ex:- inside a university database , multiple courses are associated with one professor.
+
+
+        4. many to many(N : M) :- one entity of A associated with multiple entities of B and vise versa.
+
+
+                ex:- each Customer can buy multiple products from supermarket/mall and each product can be bought 
+                     by multiple people.
+
+                ex:- each student can have multiple courses enrolled and each course can be enrolled by multiple students.
+
+    2. participation constrains.
+        types of participations
+            1. total participation
+            2. partial participation
+
+        1. total participation => consider a customer and loan relationship , it's not possible to have loan which is not taken 
+                                but any customer , "Lawaris Loan not possible" , hence in this relationship loan will 
+                                participate totally.
+
+                                total participation is represented by double lines in ER diagramme
+
+        2. partial participation => consider a customer and loan relationship , it is possible that customer dont have taken 
+                                    any loan from bank , "Its not necessory that each customer should have taken a loan" , hence 
+                                    customer will participate partially only.
+
+                                    partial participation is represented by single line.
+
+        strong entities may or may not have total participation
+        weak entities always comes in total participation.
+
+        ex:- consider a bank database , consider a relationship  of loan(strong entity) and payment(weak entity).
+
+            loan is in partial participation and payment is in weak participation.

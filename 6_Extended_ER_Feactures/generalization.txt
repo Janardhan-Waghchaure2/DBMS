@@ -1,0 +1,25 @@
+1. it is exactly same as specialization , only difference is that we think from "Bottom-Up" Approch.
+
+2. ex:- we have 3 entities like SUV , BUS , Truck.
+
+      and after thinking  a while below were the attributes of each entities.
+
+
+      SUV :- fuel CAPACITY , milage , horse power ,  number_of_seats , etc..
+      BUS :- fuel CAPACITY , milage , horse power ,  number_of_seats , load_carring_capacity , etc..
+      Truck :- fuel CAPACITY , number_of_wheels , milage , horse power ,  number_of_seats , etc..
+
+      and after seeing above we realized that all 3 entities have 3 attributes in common 
+
+      so why not to create an superclass entity like "vehicle" which will have above common attributes
+      and SUV  , BUS , Truck will simily have "is-a" relationship with that entity.
+
+3. as we initially had 3 entities and we build top level entity later on hence we call this bottom up Approch.
+
+4. both specialization and generalization looks same on ER-diagramme.
+   only thinking process of creating them is differnt.
+
+   in specialization we create child entities from parent entity
+   in generalization we create parent entities from child entity
+
+5. IN BOTH specialization AND generalization CHILD ENTITY WILL BE ABLE TO ACCESS THE PARENT CLASS ATTRIBUTES.

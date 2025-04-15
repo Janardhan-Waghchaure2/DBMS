@@ -1,0 +1,204 @@
+0. JOIN BASICALLY TAKES INPUT OF 2 TABLES
+   TO FORM A NEW TABLE MADE OF THOSE 2 COLUMNS.
+
+
+1. INNER JOIN.
+
+   left_table
+                  (Primary)
+   |  L1   |  L2  |  Key  |  
+   |  a    |  b   |   1   |  
+   |  c    |  d   |   2   |  
+   |  e    |  f   |   3   |  
+   |  g    |  h   |   4   |  
+
+   right_table
+                    (Foregn)
+   |  R1   |  R2  |  Key  |  
+   |  x    |  y   |   1   |  
+   |  u    |  v   |   2   |  
+   |  m    |  n   |   3   |  
+
+
+   INNER JOIN WILL TAKE 2 TABLES TOGETHER ON key column.
+   and only keys which exists in both the key column will be used to 
+   form the new table.
+
+    |  key|  L1   |  L2    |  R1   |  R2  |  
+    |   1 |  a    |  b     |  x    |  y   |  
+    |   2 |  c    |  d     |  u    |  v   |  
+    |   3 |  e    |  f     |  m    |  n   |  
+
+
+    note that as key 4 was not present in right_table hence it is not considerd in 
+    the joining process.
+
+
+2. syntax
+
+    SELECT left.L1 , left.L2 ,
+           right.R1 , right.R2 
+    FROM        left_table AS left 
+    INNER JOIN right_table AS right 
+    ON left.id = right.id;
+
+    output of above query will be below.
+    i.e WE WILL SELECT ONLY  ROWS FROM LEFT AND RIGHT TABLES WHICH ARE HAVING 
+        COMMON ATTRIBUTS VALUES IN A GIVEN COLUMN.
+
+     like left_table had key 1,2,3 and right_table had keys 1,2,3.
+     so 3-3 rows will be selected from both the tables and joined to form new table.
+
+
+    |  key|  L1   |  L2    |  R1   |  R2  |  
+    |   1 |  a    |  b     |  x    |  y   |  
+    |   2 |  c    |  d     |  u    |  v   |  
+    |   3 |  e    |  f     |  m    |  n   |  
+
+
+
+3. INNER JOIN.
+
+   1. LEFT JOIN : here all the rows from left_table is taken and only rows of right_table which 
+                  satisfies the condition are selected to form the table.
+
+
+    SELECT left.L1 , left.L2 ,
+           right.R1 , right.R2 
+    FROM        left_table AS left 
+    LEFT JOIN right_table AS right 
+    ON left.id = right.id;
+
+
+
+
+   left_table
+                  (Primary)
+   |  L1   |  L2  |  Key  |  
+   |  a    |  b   |   1   |  
+   |  c    |  d   |   2   |  
+   |  e    |  f   |   3   |  
+   |  g    |  h   |   4   |  
+
+   right_table
+                    (Foregn)
+   |  R1   |  R2  |  Key  |  
+   |  x    |  y   |   1   |  
+   |  u    |  v   |   2   |  
+   |  m    |  n   |   3   | 
+
+   
+   after doing left join entire left table will be taken and rows 1,2,3 of right_table will be taken 
+   to form the joined table.
+
+   after doing left join below will be the output.
+
+    |  key|  L1   |  L2    |  R1   |  R2  |  
+    |   1 |  a    |  b     |  x    |  y   |  
+    |   2 |  c    |  d     |  u    |  v   |  
+    |   3 |  e    |  f     |  m    |  n   |  
+    |   4 |  g    |  h     | NULL  | NULL |  
+
+
+    note that the values which were not present for the extra row of left_table are assigned with null.
+
+
+   2. RIGHT JOIN : here all the rows from right_table is taken and only rows of left_table which 
+                   satisfies the condition are selected to form the table.
+
+
+    SELECT left.L1 , left.L2 ,
+           right.R1 , right.R2 
+    FROM        left_table AS left 
+    RIGHT JOIN right_table AS right 
+    ON left.id = right.id;
+
+
+
+   left_table
+                  (Primary)
+   |  L1   |  L2  |  Key  |  
+   |  a    |  b   |   1   |  
+   |  c    |  d   |   2   |  
+
+   right_table
+                    (Foregn)
+   |  R1   |  R2  |  Key  |  
+   |  x    |  y   |   1   |  
+   |  u    |  v   |   2   |  
+   |  m    |  n   |   3   | 
+
+   
+   after doing right join entire left table will be taken and rows 1,2 of left_table will be taken 
+   to form the joined table.
+
+
+    after doing right join below will be the output.
+   
+    |  key|  L1   |  L2    |  R1   |  R2  |  
+    |   1 |  a    |  b     |  x    |  y   |  
+    |   2 |  c    |  d     |  u    |  v   |  
+    |   3 |  NULL |  NULL  |  m    |  n   | 
+
+   
+
+   3. FULL JOIN : here all the rows of left_table and right_table are connected together to form a table.
+                  all the rows of left table whose corrponding right_table rows are absent are assigned null and 
+                  all the rows of right table whose corrponding left_table rows are absent are assigned null 
+
+
+
+      in syntax we have to take union of left join and right join.
+   ------------------------------------------------------
+    SELECT left.L1 , left.L2 ,
+           right.R1 , right.R2 
+    FROM        left_table AS left 
+    LEFT JOIN right_table AS right 
+    ON left.id = right.id;
+
+            UNION 
+
+    SELECT left.L1 , left.L2 ,
+           right.R1 , right.R2 
+    FROM        left_table AS left 
+    RIGHT JOIN right_table AS right 
+    ON left.id = right.id;
+
+   ------------------------------------------------------
+
+
+   left_table
+                  (Primary)
+   |  L1   |  L2  |  Key  |  
+   |  a    |  b   |   1   |  
+   |  c    |  d   |   3   |  
+
+   right_table
+                  (Foregion)
+   |  R1   |  R2  |  Key  |  
+   |  x    |  y   |   2   |  
+   |  m    |  n   |   4   |  
+
+
+    after doing full join below will be the output.
+   
+    |  key|  L1    |  L2    |  R1   |  R2  |  
+    |   1 |  a     |  b     | NULL  | NULL |  
+    |   2 |  NULL  |  NULL  |  X    |  Y   |  
+    |   3 |  c     |  d     | NULL  |  NULL| 
+    |   4 |  NULL  |  NULL  |  m    |  n   | 
+
+
+4. CARTESION JOIN.
+    it forms all possible joins.
+    i.e for each left row WE TAKE ALL RIGHT ROWS AND FORM TABLE OUT OF IT.
+
+    ex:- if table1 have 5 rows and table2 have 10 rows then 
+         CARTESION join will create table of 5 X 10 = 50 rows.
+
+
+------------------------------- can we do joins without JOIN keyword.
+==> yes .
+
+SELECT * , * FROM table1 , table2 WHERE table1.id = table2.id;
+

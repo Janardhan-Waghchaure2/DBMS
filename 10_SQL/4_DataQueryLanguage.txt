@@ -1,0 +1,125 @@
+----------------------- DISTINCT --------------------
+1. we can select the distict values from all the values column is having
+   ex:- a gender column will have all male or female values hence
+
+   SELECT DISTINCT gender 
+   FROM employee;
+   
+   will return male and female as entire column is just taking 
+   2 distinct values. 
+
+
+2. SELECT DISTINCT department
+   FROM COMPANY;
+
+   => return all the distinct departments(HR , Research , Design , Sales)
+      in a COMPANY.
+
+
+
+
+
+
+
+
+----------------------- Group By ----------------------
+** used to group together similar values of perticular attributes.
+
+1. department attribute can have 3 values:- HR , Design , Sales.
+
+   the GROUP BY will return 
+   the number of people which belongs to those departments.
+
+
+   SELECT department , COUNT(department)
+   FROM worker_table 
+   GROUP BY department; 
+
+   output=>
+
+       (department)  COUNT(department)
+         HR          =  100
+         Design      =  45  
+         Sales       =  37
+
+
+2. grouping together max salary in each department
+
+
+   SELECT department , MAX(salary)
+   FROM worker_table 
+   GROUP BY department; 
+
+   output=>
+
+       (department)  MAX(salary)
+         HR          =  100000 Rs 
+         Design      =  45000  Rs  
+         Sales       =  37000  Rs 
+
+   similarly we can use MIN() , AVG() , SUM() functions to find MIN, AVG and Total salary per department.
+
+
+3. note that if we dont use aggregation functions along with GROUP BY then output will be same as 
+   of the DISTINCT keyword.
+
+
+
+
+
+
+
+
+
+
+
+-------------------------- HAVING ------------------------
+** having is similar to where , like where is used with select cluase.
+in same way having is used with group by.
+
+** HAVING dont work without group-by.
+
+i.e whenever we select some rows from GROUP BY COMMAND 
+    then to furthur select those rows by some condition.
+
+
+    we know that below thing will give ALL THE  departments WTIH THEIR employee COUNT.
+    NOW IF WE WANT TO FURHTER SELECT ONLY THOSE department-count(department) rows which are "HAVING" 
+    count(department) > 40
+
+
+
+   SELECT department , COUNT(department)
+   FROM worker_table 
+   GROUP BY department; 
+
+   output=>
+
+       (department)  COUNT(department)
+         HR          =  100
+         Design      =  45  
+         Sales       =  37
+
+
+   SELECT department , COUNT(department)
+   FROM worker_table 
+   GROUP BY department
+   HAVING COUNT(department) > 40; 
+
+   output=>
+
+       (department)  COUNT(department)
+         HR          =  100
+         Design      =  45  
+
+   
+   ** as sales department had only 37 employee init hence it didnt got selected 
+      in our HAVING CONDITION.
+
+1. WHERE VS HAVING.
+   1. WHERE is used for filtering the rows depending on some condition.
+   2. HAVING is used fof filtering "groups" which are formed by "GROUP BY" keyword.
+      ex:- in above example we have filtered department column and grouped them 
+           together on department attribute. i.e all HR will be in one gruop , all Design are in one gruop ,etc..
+      
+      so HAVING IS NOT FOR FILTERING INDIVISUAL ROWS , IT IS FOR FILTERING GROUPS.

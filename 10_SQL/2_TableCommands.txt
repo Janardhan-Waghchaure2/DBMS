@@ -1,0 +1,27 @@
+
+1. CREATE TABLE table_name(
+    	field_1 type1 NOT NULL PRIMARY KEY AUTO_INCREMENT,   => this attribute will be the primary key and it cant be null , AND key will be system generated number.
+	    field_2 type2 ,
+	    field_3 type3 NOT NULL,      => field whose value can't be null.
+	    field_4 type4 UNIQUE ,       => field whose value SHOULD BE UNIQUE.
+	    field_5 type5 DEFAULT default_val,   => for providing a default value to 4th field.
+		.
+		.
+		.
+	field_n type_n
+   );    
+       
+        => to create the table , assuming DB has been already selected by 'USE' command
+	
+	" ** CREATE TABLE methode is used to create SCHEMA of the table ** "
+        schema => defination of , how much attribute a given table gonna have , name of each attribute and type of each attribute.
+  
+
+2. SHOW TABLES;  => shows all the tables inside a given database
+
+3. DESCRIBE table_name; => shows the table_name's desciption
+
+4. DESCRIBE table_name attribute_name; => shows the table_names's specific attribute/column 
+                                          description
+
+5. DROP TABLE table_name;  => to delete a table inside the database.

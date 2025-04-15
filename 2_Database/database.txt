@@ -1,0 +1,4 @@
+1. it is an electronic space where data is stored in a way that it can be accessed , manged and updated easily.
+                or 
+    database is collection of data.
+
