@@ -1,0 +1,58 @@
+1. ther are 2 types of indexes.
+    1.dense index
+    2.sparse index
+    
+    student table
+
+    (Roll. no)      f_name      l_name        age         marks 
+        1            abcd        xyz           14          85
+        2            ABCD        XYZ           17          85
+                                 .
+                                 .
+                                 .
+                                 .
+      100000           a           x             21          85    
+
+
+
+1.dense index :- 
+    1. dense indexes have records for each index values
+       ex:- if students table have 100000(1 lack records)
+       then our index page/file will also have 100000 records. i.e we are storing each and every index 
+       in our index page/file.
+
+
+        dense index file for above table will look like 
+
+    (Search key/roll no.)            entry address 
+        1.                             add1
+        2.                             add2
+        3.                             add3
+                        .
+                        .
+                        .
+        100000.                        add_n
+
+
+2.sparse index :- 
+    1. sparse indexes have records for only some search keys.
+       ex:- if student table have 100000(1 lack records)
+       then our index page/file will only store 10000(10 thousand) records where 
+       each record will store address of first records.
+       
+       
+       1 lack index records = 10 record address per search ke X 10 thousand index records
+
+
+        sparse index file for above table will look like 
+
+    (Search key/roll no.)           block address 
+        1.                              add1
+        11.                             add2
+        21.                             add3
+                        .
+                        .
+                        .
+        99,991.                         add_n
+
+

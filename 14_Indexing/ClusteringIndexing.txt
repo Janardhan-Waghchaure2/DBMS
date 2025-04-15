@@ -1,0 +1,52 @@
+1. Clusturing is a type of Primary Indexing.
+   primary indexing basically means that rocords are arrenged in sorted order. 
+   such that search key gets orderd in a sorted order.
+
+2. in Clusturing indexing , there we use non-primary key attributes as search key.
+   so as search key may have duplicate values hence Clusturing becomes DENSE INDEXING.
+   as we are using each unque search key in index file.
+
+
+3. consider a table as below.
+
+
+                        DB table 
+    
+    Primary_Key      field1      field2(non-primary key)    field3     field4     
+         a            -                1                                         
+         b            -                1 
+         c            -                1
+         e            -                2
+         f            -                2
+         g            -                3
+         h            -                4
+         i            -                4  
+    
+
+    note that field2 can have duplicate values init.
+    lets say that each block have 2 size . i.e each block will have 2 recoreds init.
+
+
+                        index table for above table 
+   Non-Primary key 
+   attribute (Search key)                    Refrances/addresses 
+        (field2)
+
+        1.                                      B1 address
+        2.                                      B2 address
+        3.                                      B3 address
+        4.                                      B4 address
+
+    Refrances column of index table stores the address of block which is having value of field2 
+    firstly present init.
+
+4. in above index file  we can see that serach key of index table is having 
+   each unique attribute of DB table.
+
+   also note that 1 is lieing not just in B1 but also in B2 block , so if we wants to 
+   reatrive all the tuples for field2=1 then start searching in B1 address and 
+   keep going down until field2=1.
+
+
+5. note that in table all the rows which are having field2 = 1 are getting clustered 
+   (means similar data is getting clustered) hence it is called as Clusturing.

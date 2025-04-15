@@ -1,0 +1,90 @@
+1. Log-based recovery methods
+   there are 2 types of log based methods/recory systems.
+         1. Deferred DB Modifications
+         2. Immediate DB Modifications
+
+    1. The log is a sequence of records. 
+       Log of each transaction is maintained in some stable storage 
+       so that if any failure occurs, then it can be recovered from there.
+
+    2. If any operation is performed on the database, then it will be recorded in the log.
+
+    3. But the process of storing the logs should be done before the actual transaction is applied in the database.
+
+    4. Stable storage is a classification of computer data storage technology that guarantees atomicity for any given write operation
+       and allows software to be written that is robust against some hardware and power failures.
+
+
+        lets say a transaction T was done from A(100 Rs balance) to B(50RS balance) of 10 Rs.
+        then a log of transaction is done as below.
+
+                1. read_balance(A)
+                2. temp = A - 10 = 100 - 10 = 90 Rs 
+                3. A = temp = 90 Rs                              
+                4. read_balance(B)
+                5. temp = B + 10 = 50 + 10 = 60 Rs 
+                6. B = temp = 60 Rs (commit stage)
+
+        so like above we write a log of transaction in STABLE STORAGE , "before acutally performing those oeprations on database"
+
+      now the moment we see the sixth and last log done i.e A have sent 10RS completly to B , then only we will 
+      ACTUALLY START WRITING DOWN THE INFORMATION/DATA ON DB. BUT UNTIL THAT WE WILL NOT BE DOING ANYTHING ON DB.
+
+2. Deferred DB Modifications(Deffered means late , so Deffered modification means there tht we are first writing down the logs then we 
+                              are doing actual modification in DB)
+     
+    1. Ensuring atomicity by recording all the DB modifications in the log but deferring the execution(not instantly doing write 
+       operation and lating it) of all the write operations until the final action of the T has been executed.
+
+    2. Log information is used to execute deferred writes when T is completed.
+
+    3. If system crashed before the T completes, or if T is aborted, the information in the logs are ignored.
+       (ex:- in above transaction of 10Rs if system don't see the log of last stge i.e B = temp = 60 Rs then 
+             that transaction will be ignored as it might by aborted transaction or failed due to some reason) 
+
+    4. If T completes, the records associated to it in the log file are used in executing the deferred writes.
+       (ex:- in above transaction if system sees the 6th stage of transaction , then it will write deferred writing 
+             on DB , it wont be considerd as a transaction failure)
+
+    5. If failure occur while this updating is taking place, we preform redo.
+       (ex:- lets say entire transaction was complete i.e 6 steps of above transaction was complted as all 6 steps 
+             are present in logs , now while we were doing deffered writing on DB system fails(power failes ,etc..)
+             then after system restarts it will see the logs of transaction and it will again start doing deffered writing
+             on DB and finally that transaction will be updated on DB)
+
+
+3. Immediate DB Modifications
+    
+    1. unlike Deffered DB modification methode , here we write the log and then immidiatly we also update the 
+       data to DB.
+
+    2. in the transctions logs here we also keep track of old values written in DB , THIS IS TO ROOLBACK 
+       IF TRANSACTION FAILS (TO MAINTAIN atomicity , AS DB SHOULD BE EITHER UPDATED IF TRANSACTION IS COMPLETE OR 
+       SYSTEM SHOULD NOT UPDATE ANYTHING DB IF TRANSACTION FAILS OR aborted BY USER.)
+
+       transaction logs for transaction from A(100Rs balance) to B(50Rs balance) for 10 Rs looks like below ,
+       here we are also carrging the old values of balance in order to restore DB in case of failure. 
+
+                1. read_balance(A)
+                2. temp = A - 10 = 100 - 10 = 90 Rs  , original_balance_A = 100 Rs 
+                3. A = temp = 90 Rs , original_balance_A = 100 Rs                              
+                4. read_balance(B)
+                5. temp = B + 10 = 50 + 10 = 60 Rs , original_balance_B = 50 Rs
+                6. B = temp = 60 Rs , original_balance_B = 50 Rs(commit stage)
+       
+       note that uptill the step 6 we have all the records of original balance of A and B account. so that 
+       we can rollback if system failes anywhere between steps 1-6.
+     
+     3. note that as we are writing logs and updating data simultaniously on DB , BUT FIRST WE HAVE TO 
+        WRITE THE LOGS IN STABLE STORAGE THEN ONLY WE UPDATE IT ON DB , this is done so that we can redo all 
+        steps if power failuer occurs.
+
+    3. Failure handling
+         1. System failure before transaction completes, or if transaction aborted, then old value field is used to undo the transaction.
+         2. lets say our transaction was complted and we write step 6(commit stage) on logs (BUT HEVENT UPDATED IT IN DB)
+            and system fails. now the next time system restarts it will check the logs and if it sees step 6(commit stage)
+            then it will redo all the 6 steps(by replacing the previous values in DB) to make sure that all 
+            changes have done in DB TO ENSURE THE DURABILITY.
+
+
+   note:- Deffered writes = writing on DB which we are doing later after log writing of last stage of transaction is complteed. 

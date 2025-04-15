@@ -1,0 +1,23 @@
+1. yes , we cant do Horizontal scaling in SQL. BUT ITS PRACTICALLY NOT POSSIBLE.
+
+2. lets say users have increased and load on server was increased so we brought new servers/nodes in our system.
+   and we distributed some of the tables of our relational model on those servers.
+
+   ex:- we had total 6 tables in DB lets say and total 3 servers(s1, s2, s3)/nodes(placed geographically distant) , so each node 
+        will be having 2 tables init.
+
+3. now lets say we want to apply the join IN SQL(at s2 server)  and we are fetching the info. from 
+   distant servers(s2 and s3) to our server(s2). NOW DOING THIS IS PRACTICALLY POSSIBLE BUT IT CONSUMES SO 
+   MUCH OF TIME TO DO. 
+
+    ex:- imagine we open instagrame and waiting for minutes for just home page to load , 
+         imagine we have open gmail and we are just waiting for emils to get loaded its not a 
+         good user expirience
+
+
+4. hence Horizontal scalling is best achived with NoSQL databases where there is no any 
+  tables kind of structure.
+
+
+
+5. servers = nodes = computing machines.

@@ -1,0 +1,27 @@
+1. CA Databases :- 
+    1. these databases allows Consistancy and Avaialbility at same time.
+    2. but in reality some partitioning/communication fault could happen hece these are not practical databases.
+       this we can find some DB's which are CA types.
+
+
+2. CP Databases :- 
+    1. these databases allows Consistancy and Partition Tolerance at same time.
+       i.e if communication between 2 nodes is breaked then system will loose Avaialbility if we choose Consistancy.
+    
+    2. in CP databases if communication goes between 2 nodes then the nodes which are getting 
+       read requests are turned off. due to which Avaialbility gets lost.
+      
+       and whenever inconsistancy is removed after communication is back then those nodes are again brough online.
+
+    ex:- banking systems follows CP architecture beacuse WE CANT AFFORED TO HAVE INCONSISTANCY ACORSS NODES.
+         we cant allow to show 100 rs balance on one server and same account is showing 200 rs balance on other server.
+      
+3. AP Databases :
+    1. these databases allows Avaialbility and partion Tolerance at same time.
+       i.e if communication betweeen 2 nodes is breaked then system will loose Consistancy if we choose Avaialbility.
+    
+    2. in partitioning all the nodes will be Avaialble for reading operations. and whenever communication is reestablished 
+       then all the data will be replicated.
+
+    3. in social media applications its not a big problem if some likes are not shown due to communication lost 
+       ones communication is back then all the right data will be diplated to user.

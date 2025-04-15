@@ -1,0 +1,21 @@
+1. types of indexing
+    1. Primary Index
+
+        
+
+2. Primary Index.
+    
+    1. A File(DB file) can have multiple index files/index data structure , BASED ON CHOICE ON SEARCH KEY.
+       ex:- for a student table there are multiple SEARCH key possible like age , roll no. , prn , 
+            height , weight , Adhar card no., phone number , etc..
+        
+    2. If DB files are already arrenged in such a way that all the search key are in sorted 
+       order then we call these DB files as Primary index. 
+
+    3. in a DB file , its not necessory that search key should be "Primary KEY" of the table.
+       it can be or it cannot be the primary key of the table.
+       
+       also dont confuse word primary in "Primary Index" with primary key, it dosent mean that search key in 
+       Primary Index should be primary key of table.
+
+

@@ -1,0 +1,92 @@
+1. C = Consistancy 
+   A = Avaialbility
+   P = Partition-Tolerance
+
+   CAP theorem is concept related to the Distributed Databases.
+
+2. whenever we break our database on multiple nodes where each node will contain a replica of 
+   main DB then its important that all of those nodes are "CONSISTANT" in nature. 
+
+   whenever a user intaracts with a server then it writes some data this data should be spread accross the 
+   server to make "CONSISTANCY" OF DATA ACROSS ALL THE SERVERS.
+
+
+3. system is said to have HIGH "AVAILABILITY" if it is UP/WORKING AND NOT DOWN ALL THE TIME.
+   high Avaialbility make sure that user will get response irrespective of state of indivisual 
+   servers.
+
+4. when we say that Distributed system is undergoing a Partition  then we means that 
+   there is some break/inturription of communication between 2 nodes/servers.
+
+   system is said to be "Partition-Tolerant" if it work fine even measseges are dropped or delayed between the nodes.   
+
+    ______________________________________________________________________________________
+    partitioning here means breakage of communication between 2 nodes which are in system.
+    ______________________________________________________________________________________
+
+    and partitioning Tolerance system means a system which can work without errors even if 
+    communication is lost between nodes. and to be a partitioning Tolerance system each node should have 
+    all deta present on other servers.
+
+
+
+-------------------------- CAP theorem ------------------
+1.  A given Distributed system can only provide 2 properties at given instance of time.
+                OR 
+    all 3 properties cannot exists in a system at same time.
+
+    ** IF A SYSTEM IS NOT DISTRIBUTED(I.E IT IS JUST A SINGLE NODE/SERVER IN A SYSTEM) THEN ALL 3 PROPERTIES CAN 
+       BECOME TRUE.
+
+
+
+2. consider a client whose is writing some data on s1 and reading some data on s2.
+
+
+                    s1(server 1)        |
+                  /                     |            
+                 / (write x = 10)       |
+                /                       |
+            user                        | (partion been 2 nodes , i.e communication has breaked betweeen nodes)      
+                \                       |
+                 \ (read x)             |  
+                  \                     |
+                    s2(server 2)        |
+              older vlaue of x = 7      |
+
+     so as both s1 and s2 are exact replicas of each other , now consider that there is a Partition between 2 nodes.
+     i.e communication breaked betweeen the 2 nodes.
+
+     1. if we allow Avaialbility high, means we are allowing s1 to write and s2 to read then 
+        Consistancy will be lost. as writer is writing x = 10 but on reading side x = 7 as latest 
+        value hevent reached the s1 server due to breakage in communication.
+
+     2. if we dont allow for read opeations to occur then Consistancy will be higher as we are not letting 
+        user read wrong/older data(x = 7) but due to this Avaialbility is less as all read opeations will 
+        be blocked duering partion period.
+
+     
+    so we can say that there is a tradeoff , increasing one reduces other.
+
+
+    now above we assume communication was breaked lets say now communication exists between s1 and s2.
+
+
+     1. now if we want Avaialbility high then the moment user writes x = 10 at same moment user reads the values of x 
+        but user reads wrong value of x (x = 7) , even though the is communication betweeen s1 and s2 exists still 
+        it takes some time for the data to be updated to s1 HENCE IF WE GO FOR AVAILABILITY THEN CONSISTANCY IS LOST.
+
+     2. now lets say if we want high Consistancy then we need to block the reading from s1 while data from s2 updates to 
+        s1 this also takes time so in that duration Avaialbility will be lost.
+
+
+    HENCE AT A GIVEN instance ONLY 2 OF THOSE PROPERITES ARE PROVIDED BY A DISTRIBUTED SYSTEM.
+    ** if distrbuted system is there then it is bound to partitioning.
+
+
+    NOTE THAT WHEN WE ARE SAYING THAT SYSTEM IS PARTITION TOLERANT THEN WE ARE SAYING THAT 
+    EVEN IF communication IS BREAKED STILL BOTH S1 AND S2 SERVERS ARE WORKING AND DUE TO THIS 
+    EITHER CP OR AP CAN BE ACHVED AT SAME TIMES.
+
+
+

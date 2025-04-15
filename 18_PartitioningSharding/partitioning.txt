@@ -1,0 +1,70 @@
+1. Lets say we have a internet based system where 
+        1. A huge amount of data needs to be managed.
+        2. No. Of requests hitting the servers are large.
+
+        due to this reasons keeping just one big server and one database makes this system handling hard. 
+        using just one server and DB will slow down the server/increasing latancy or may cause failure of servers.
+
+
+
+2. Database Optimization Techinques.    
+    1. scale-up/virtical scaling :- increase ram , storage , more powerful cpu , etc..
+        1. this works but burns a lot of money.
+    
+    2. clustering/replication :- 
+         1. in here we make a lots of instances of main servers called replica sets.
+         2. and load gets distributed over these servers.
+         3. here we have a master server and replica servers and whenever a new update 
+            is done on master server then that updates are copied to replica servers.
+         4. this is good enough methode of DB Optimization to balance load and to improove 
+            performance but there is one more better methode called partitioning
+
+    
+    3. partitioning   :- 
+        1. it is a way of scale-out(i.e horizontal scalling)
+        2. here also like clustering NEW NODES ARE ADDED but instead of adding exact same replication of data of main 
+           server to replica servers we BREAK THE MAIN SERVERS DATA INTO CHUNKS AND DISTRIBUTE IT ACCROSS THE SERVERS.
+           this is called partitioning as we are partitioning the Main data into CHUNKS and placing those CHUNKS 
+           in indivisual servers.
+
+        3. this increases the performance of system.
+
+        4. relational databases are hard to scale-horizontally but in partitioning we can break the table 
+           (either horizontally or virtically) and distribute the chunks of table in different servers.
+
+
+3. types of partitioning
+    1. virtical :- 1. table are breaked along the colummns.
+                   i.e some attributes are sotred in first server and some other attributes are stored in 
+                       some other server.
+
+                   2. here to access the complete tuple we need to merge the data from multiple tables
+
+
+    2. horizontal :-1. table are breaked along the rows.
+                     i.e some tuples are stored in first server and some other rows/tuples are stored in some other 
+                     servers.
+                    
+                    2. here to access the complete tuple we need to don't need to merge data from multiple servers as 
+                       all columns are available on given server.
+
+
+
+4. when to apply data partitioning :-   
+    1. when number of requests have execeeded the limit of DB , due to which speed of single DB is not enough 
+       to serve all the requests.
+
+    2. when data becomes so huge so that it cant be managed with just one DB server.
+
+
+
+
+5. distributed database:-
+    1. A single logical database that is spread accross multiple locations(servers) and logically connected accross network.
+    2. when we apply clustering , partitioning and sharding on DB then we get Distributed DB.
+    
+    when this distributed DB needed
+        1. when number of requests have execeeded the limit of DB , due to which speed of single DB is not enough 
+            to serve all the requests.
+
+        2. when data becomes so huge so that it cant be managed with just one DB server.    

@@ -1,0 +1,151 @@
+1. NoSQL(aka "not only sql") , it means that data in NoSQL is not stored in form of tables instead they are stored in some other format.
+
+                                            OR  
+
+    data is not stored in relational tables form.
+
+2. NoSQL can store data in any of the below type 
+        1. document 
+        2. key:value 
+        3. wide-column 
+        4. graph.
+
+3. NoSQL databases provide flexible schemas and scale easily with large amount of data and high user laods.
+
+
+
+SQL	                                            NoSQL
+
+Tables with fixed rows and fixed columns        Json docments , key-value pairs , wide-column , graphes
+
+
+Developed in 1970s with goal to reduce           Developed in 2000s with focus of scaling , rapid-Developement ,
+data redundancy as cost of storage was high      high - speed reading/fetching of data.
+and hence all the concepts like normalization 
+,etc. was used to reduce redundancy and reduce
+storage space.
+
+
+RELATIONAL DATABASE MANAGEMENT SYSTEM (RDBMS)	Non-relational or distributed database system.
+
+These databases have fixed or static or         They have dynamic schema 
+predefined schema	
+
+These databases are not suited for          	These databases are best suited for hierarchical data storage.
+hierarchical data storage.
+
+These databases are best suited for         	These databases are not so good for complex queries
+complex queries
+
+Vertically Scalable	                            Horizontally scalable
+
+Follows ACID property	                        Follows CAP(consistency, availability, partition tolerance)
+                                                generally dont follow ACID.                                
+
+Examples: MySQL, PostgreSQL,                 	Examples: MongoDB, GraphQL, HBase, Neo4j, Cassandra, etc
+Oracle, MS-SQL Server
+
+
+scaling :- increasing the memory capacity or computing capacity of servers because 
+                1. storage space of servers are running out so more space/storage is needed 
+                2. computing is getting slower due to more users hitting servers.
+           is called scaling.
+
+                                        types of scaling 
+                        1. Vertical                       2.Horizontal
+                  increasing ram , increasing             here we simply add more 
+                  SSD or HDD , adding more                number of servers which 
+                  powerful cpu ,etc ON SAME               shaires the total load.
+                  SERVER/MACHINE. 
+                  
+                  this is more costly                     this is less costly.
+
+          Horizontal scaling = scaling out 
+          Vertical scaling   = scaling up 
+        
+        note that its not compulsorly to scale Horizontally in nosql , because scaling up Vertically is costly 
+        hence its preffered to scale Horizontally.
+
+
+Advantages of NoSQL
+1. flexible schema : in sql we have to provide values of all the attributes compulsorly , but in 
+                     NoSQL we dont have to WE CAN SIMPLY SKIP SOME ATTRIBUTES IF WE WANT OR WE CAN ADD 
+                     SOME EXTRA ATTRIBUTES IF NEEDED.
+
+                     schema of MongoDB.
+                     here some attrobutes of std1 is removed in std2 and some extra is added in std2.
+
+                        std1 = {
+                                f_name : "jana" ,
+                                l_name : "waghchaure" ,
+                                age : 21 , 
+                                hobbies : ["a" , "b" , "c"]
+                        }
+
+                        std2 = {
+                                f_name : "jana" ,
+                                m_name : "rajendra"
+                                l_name : "waghchaure" ,
+                                prn    : 345353645
+                        }
+
+2. Horizontal scaling :-  SQL databases dont allow to have multiple small servers handling the load.
+                          because it is difficult to spread all the tables of relational DB accross multiple servers.
+                          but NoSQL databases allows to do Horizontal scalling which is a cost effective.
+
+                        ex:- lets say a databse of student in made in SQL and NoSQL DB.
+                        now in SQL database we have student ,subjects , professor , exam , etc.. tables formed
+                        so to fetch a complte data of student we have to apply joing and other things on SQL DB.
+
+                        whereas in NoSQL server simply made key:tuple where entire data(marks ,professor , exams , student info.) 
+                        related to student is stored to one place. now as there is no copuling of ONE STUDENT TO OTHER STUDNET 
+                        (LIKE ONE TABLE IS CONNECTED TO OTHER IN REALTIONAL MODEL) HENCE we can easily distribute this students on 
+                        multiple servers.
+
+                        thats why we are saying that Horizontal scaling is easily achived in NoSQL DB's.
+
+
+                        ALSO NOTE THAT EACH OF THE STUDENT JSON OBJECT OF NoSQL DB IS CONTAINING THE REPEATED DATA LIKE 
+                        SUBJECTS , PROFESSORS , EXAMS ,ETC.. which we used to create tables in sql to reduce the redundancy in DB.
+
+                        WHICH MEANS THAT IN NoSQL DB. WE DONT CARE THAT MUCH ABOUT DATA redundancy , WE SIMPLY 
+                        DESIGN "EVERYTHING FOR SPEED".
+
+
+3. high availability :- as same data is stored on multiple servers in HENCE IF ONE SERVER FAILS THEN REQUESTS 
+                        ARE DIRECTED TO NEXT SERVER.
+
+                        AND DUE TO THIS NoSQL DB's provide good availability.
+
+
+
+4. high speed         :- operations like read , insert , etc.. occurs at high speed in NoSQL databases as all the data is 
+                         not distributed over different tables. all the data is on one place hence time complexity of fetching 
+                         or manipulating data is better for NoSQL as compaired to SQL databasess.
+
+
+                         ex:- all the data of one student is stored in a simple json like key:value format in NoSQL 
+                              where sql have 4-5 different tables where student data is distributed which makes feching and 
+                              manipuation of data slower.
+
+
+
+5. caching meachanism exists in NoSQL.
+
+6. nosql  used mostly in clound operations.
+
+
+
+Disadvantages :
+        1. due to  Data redundancy present in nosql databases hence they requires more amount of storage spaces 
+           as compaired to sql databases.
+
+           BUT AS SOTRAGE COSTS ARE REDUCING AND NEED FOR SPEED IS INCRESING HENCE THIS DATA redundancy PROBLEM 
+           IT NOT THAT MUCH OF BIG.
+
+        
+        2. update and delete is costly.
+
+        3. not All NoSQL follows ACID porperties.
+
+        4. dont support data entry consistency constrains. 

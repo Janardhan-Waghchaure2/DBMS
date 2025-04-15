@@ -1,0 +1,19 @@
+0. server = node =  BIG sized computer which serves user requests
+
+1. clustering = replication = placing multiple servers instances which all are having same data on them
+                              (i.e they are exact replica of each other)
+
+2. instead of having a one single server , when we make multiple servers/multiple instances of server 
+   WHERE EACH SERVER INSTANCE IS HAVING EXACT SAME DATA(ex:- if server A have 1000 users data init then
+   server B will also have EXACT SAME USERS DATA INIT) 
+   these set of servers are called as clustering.
+
+
+3. why to introduce redundancy(unnecessorly copying same data on different servers) ?
+    1. as we have multiple instances of servers hence even if some server instance goes down ,
+       or turned off due to technical problems , it is under maintainance , etc..
+       then other servers will take over and handle the situation.
+
+    2. this increses availability and reduces down time.
+
+    3. this architecture also helps to do load balencing.

@@ -1,0 +1,19 @@
+1. Fast-Paced Developement :- when we have requirments that Developement needs to be done in very short duration of time 
+                              then nosql should be used. and the reason is that with sql we need to first design ER digramme , 
+                              then make relational mode ,think of different contrains , think of what should be different table ,etc...
+                              which is very lengthy process AS WE NEED TO STRUCTURE EVERYTHING IN RIGHT MANNER. hence for fast-paced 
+                              Developement NoSQL is better.
+
+
+2. semi-Structured or  un-Structured data :- whenever data is in Structured form then its best to use sql
+                                (ex:- college DB , banking DB , etc..) but if data is in a lot of unstructure way then its 
+                              better to use nosql. 
+
+  
+3. high volumne               :- for higher volumne of data nosql is used.
+
+
+4. Horizontal scaling         :- whenever the requirments are to scale Horizontally then nosql is used.
+
+
+5. applications like microservices and real-time streaming.

@@ -1,0 +1,22 @@
+1. sharding is a technique to apply horizontal partitioning.
+
+2. lets say we have a table with 1000 tuples init and we have 2 servers s1 and s2.
+
+        s1 stores 1-500  records/tuples init.
+        s2 stores 500-1000  records/tuples init.
+
+        ** shard means server here.
+
+    now whenever user's requests id is between 1-500 then request will be directed to s1 otherwise s2.
+    and to do this directing we need a routing system which will direct users requests to right 
+    server/shards.
+
+
+3. advantages of sharding   
+    1. it scales the system.
+    2. availability of system increases.
+
+4. dis-advantages of sharding.
+    1. complexity , making partition mapping , Routing layer needs to be implemented in system.
+    2. non-uniformity(putting uneven number of rows in each servers) creates need of resharding
+      (to make the number of rows in each table equal)

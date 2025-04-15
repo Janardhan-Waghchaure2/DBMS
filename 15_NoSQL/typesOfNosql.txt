@@ -1,0 +1,71 @@
+1. types of Nosql Types 
+    1. KeyValue
+
+
+1. KeyValue model/structure :- 1. data is stored in key:value format 
+
+                
+
+2. column-wise/column-oriented/wide-column/c-store :-
+                               1. in relational data base we store data in rows. i.e each tuple lies in a tuple.
+
+                ex:- if we have student info then in relational database it looks like 
+
+
+                std_id     name       age 
+                4545       abcd       53  
+                7425       xyz        33  
+
+                in column-wise model/structure above data will look like 
+
+                std_id          name           age 
+                4545,7425       abcd,xyz       53 , 33
+                                
+                in column-wise data is stored horizontally in in columnwise.
+
+
+
+3. Document based structure/model :- 
+                            1. this DB stores data in document format similar to JSON , objects.
+                            2. each documets contains multiple key:value pairs.
+                            3. supports ACID properties and used for transactions.
+
+            ex:- lets say we have a college database then it will look like below in Document model.
+
+            Student {
+
+                user_id : --- , 
+                age : ---- , 
+                gender : ---- ,
+                f_name : ----- ,
+                l_name : ---  ,
+                Subject : { sub_id1 , sub_id2}
+                teachers : { teacher_id1 , teacher_id2}
+
+            }
+
+            teacher {
+
+                  teacher_id : ---- ,
+                  subject_taught : { --- , --- , ---}
+                  name : --- , 
+                  age :---
+            }
+
+
+            Subject {
+                sub_name : ------- ,
+                sub_id : 
+
+            }
+
+
+            from above we can see the schema for Document model can also have realtions like 
+            realational model SO YES WE CAN ALSO IMPLEMENT RELATIONS LIKE SQL IN Nosql ALSO.
+
+
+
+4. Graph based model.
+        1. data is stored in graph based data structure.
+           ex:- facebook and  socail media uses it ,
+                google maps uses it.            

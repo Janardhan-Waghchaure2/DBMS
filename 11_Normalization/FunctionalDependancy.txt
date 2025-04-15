@@ -1,0 +1,65 @@
+1. Functional dependency in DBMS, as the name suggests is a relationship between attributes of a table dependent on each other.
+                                        OR 
+    relationship between primary key attribute and other attributes is called functional dependency.
+
+    symbolically , 
+
+    A = primary key.
+    B = other attribute which depends on A for its identification in DB.
+
+    (detemenant)     (dependent)
+                A -> B
+    
+    NOTE THAT , ALTHOUGH B DEPENDS ON A , BUT WHY ARROW IS GOING FROM A TO B ?
+    BEACUSE ARROW REPRESENTS THAT IF WE HAVE GIVEN A(primary KEY) THEN WE CAN FIND ATTRIBUTE B.
+    THATS WHY ARROWS IS FORM A TO B. BEACUSE WE CAN FIND B WITH HELP OF A IN GIVEN DB. 
+
+2. Example
+The following is an example that would make it easier to understand functional dependency −
+
+We have a <Department> table with two attributes − DeptId and DeptName.
+
+DeptId = Department ID
+DeptName = Department Name
+
+    __________________________________
+        DeptId          DeptName
+        001             Finance
+        002             Marketing
+        003             HR
+    __________________________________
+
+
+The DeptId is our primary key. Here, DeptId uniquely identifies the DeptName attribute. 
+This is because if you want to know the department name, then at first you need to have the DeptId.
+
+
+Therefore, the above functional dependency between DeptId and DeptName can be determined as 
+DeptId is functionally dependent on DeptName −
+
+
+2. Types of Functional Dependancies.
+        1. Trivial Dependancies.
+            A -> B is said to be a Trivial dependency if B is subset of A.
+
+            i.e if we can find all B attribute values with A attribute(primary KEY) then 
+                A -> B dependency is Trivial.
+            
+        2. Non-Trivial.  
+           A -> B is said to be a NonTrivial dependency if B is not subset of A.
+           
+           which means that for some values of B there is no corrosponding values of A.
+           and in that case NOT ALL B VALUES CAN BE FOUND WITH HELP OF A VALUES(primary keys)
+
+
+3. Rules of Functional Dependancy(Armstrong's Axioms).
+
+    1. Reflexive :- if A is subset of  B , then A -> B holds true.
+
+    2. Augmentation :- if B can be found from A then adding an extra attribute in this dependency wont change anything.
+                   
+                   i.e if A -> B then AX -> BX is also true.
+
+    
+    3. Transitiviy  :- if A can determine B (A -> B) and if C can be determined by B (B -> C) then 
+                       C can be determined by A(A -> C)

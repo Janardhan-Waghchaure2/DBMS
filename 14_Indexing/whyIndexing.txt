@@ -1,0 +1,102 @@
+1. how DBMS works ?
+                                        (user interacts with DBMS)
+                                                  ---->
+    user(Writing SQL queries on laptop/desktop)     ==>    DBMS             ==> DB(Database)
+                                                  <---- 
+                                        (DBMS returning the queried results)
+    
+    now note that speed of database << speed of CPU hence direct interaction of CPU and DB will be by default very slower.
+    this is why we use indexing to increase the speed.
+
+
+2. lets say there is a student table somewhere in DB looks like below.
+  
+    Primary key
+    (Roll. no)      f_name      l_name        age         marks 
+        1            abcd        xyz           14          85
+        2            ABCD        XYZ           17          85
+                                 .
+                                 .
+                                 .
+                                 .
+      100000           a           x             21          85
+
+      there are one lack recoreds of students in out DB.
+
+    DB  file when stored in computer , it is never stored like one piece of code with 100000 recoreds init.
+    there are block(LOGICAL BLOCK NOT ACTUAL PHYSICAL BLOCKS) and each block will contain some definite 
+    amount of data.
+
+    so lets say one block contains 10 tupes then there will be 1000 of such blocks like below.
+
+    block number.           Primary key range           
+    B1                        1- 10
+    B2                        11- 20
+    B3                        21- 30
+    B4                        31- 40
+                    .
+                    .
+                    .
+                    .
+    B10000                     99,991 - 100000
+
+
+    NOTE THAT ALL OF THIS BLOCK AND DB FILES ARE STORED ON HDD/SSD I.E ON SECONDARY STORAGE AND NOT ON THE 
+    Primary STORAGE LIKE RAM.
+
+3. now if we try to search this DB for some perticular student then doing a liner seach will be 
+   O(N) operation.
+
+   but as we know that this Primary key is in sorted form so we can also use binary search for finding if 
+   perticular number exists in given DB files or not.
+
+
+   it is okay to run this linear or binary search if DB size is small , but if DB size is large then its not efffiecinet 
+   way to serach entire DB.
+
+
+3. to increase the efficiency of seraching we use INDEX TABLES/files.
+   
+   ** INDEX IS A DATA STRUCTURE USED TO SPEED UP THE DATA LOCATING AND ACCESS IN DB TABLE**
+   
+        index table / index file /index data strcutre looks like below.
+        NOTE THAT THIS INDEX FILE OR DISC FILE CAN LIE IN DISC OR RAM , THAT DOSENT MATTER.
+
+        SEARCH KEY     DATA REFRANCE
+        1                    p1  
+        11                   p2 
+        21                   p3  
+                  .
+                  .
+                  .
+        9991                 p10000
+
+
+        in above index file ,
+            serach KEY stores  the copy Primary key or foregion key of given table 
+            DATA REFRANCE is the address of block in which given bunch of tuples 
+            are stored.
+
+                    p1 will store address of block which is storing 10 tuples from Primary_Key = (1-10) , 
+                    p2 will store address of block which is storing 10 tuples from Primary_Key = (11-20) , 
+
+
+
+4. now lets say we want to search 19 Primary key in above students table.
+   for that we will use linear search or binary search to search 19 P.K in index table.
+   then ones we find the block corrosponding to 19(19 P.K will lie in B2 as shown above).
+
+   then we have will use p2 address and search all reacords of B2 for P.K 19.
+
+
+   SO AS WE CAN SEE , PREVIOUSLY WE HAVE TO SEARCH FOR 100000 recoreds , BUT NOW 
+   WE HAVE TO SEARCH GIVEN KEY IN INDEX TABLE(of size 10,000 only) , then we have 
+   to directly search p2 address in block B2(of size 10)
+
+   hence with this indexing methode we dont have to unnecessorly iterate entire DB file.
+
+5. INEX FILES ARE ALWAYS SORTED SO THAT WE CAN WE CAN USE BINARY SEARCH TO REDUCE TIME 
+   OF SEARCHING.
+
+6. indexing is optional , i.e if database is too large then only indexing gives advantage.
+   

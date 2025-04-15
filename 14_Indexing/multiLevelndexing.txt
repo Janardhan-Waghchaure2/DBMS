@@ -1,0 +1,7 @@
+1. if data is on very very large scale (like data of country) then making single level index file 
+   is not sufficient so to handle this we make index files on multiple level 
+   (primary level index , secondary level index ,etc..)
+
+
+2. so we search the given key in first table then we get corrsoponding address then on that address 
+   we again search the same key and so on depending on levels of indexing.

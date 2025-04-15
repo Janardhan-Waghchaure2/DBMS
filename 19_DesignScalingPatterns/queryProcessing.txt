@@ -1,0 +1,14 @@
+1. query processing the the activity of extracting data from the database.
+
+2. every query written dont get directly executed , instead it goes through below 3 steps.
+        1.Parsing and translation.
+        2.Optimization
+        3.Evalution
+
+
+1. in Parsing query will be checked if it is syntactically correct or not.
+   then the parsed query will be translated from SQL queries to "Relational Alegebra expression".
+
+2. then query will get optimized.
+
+3. and at the end query will be evaluated to create final output.

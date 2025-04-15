@@ -1,0 +1,19 @@
+1. indexing types
+        1. primary indexing 
+                1. Sparse indexing (if primary key is used for search key)
+                2. Dense  indexing (if non-primary key is used for search key)
+        
+        2. secondary indexing 
+
+
+2. secondary indexing is used where DB file is not sorted on any attribute.
+            OR 
+    if file is already sorted on one attribute then FOR SURE IT WILL GET UNSORTED ON OTHER 
+    ATTRIBUTES. ex:- if we sort on age then rollnumber , height ,weight  , marks will get 
+    un-sorted automatically.
+    then if we wants to make index files based on some other attributes then also secondary 
+    indexing can be used.
+
+
+3. as we dont have sorted entries in table hence we need to use dense  indexing 
+   i.e we need to store each and every entry of DB in index table.

@@ -1,0 +1,233 @@
+1. types of normalizations.
+    1. 1NF
+    2. 2NF
+    3. 3NF
+
+1. 1NF(1st normal form):- 
+     1. every relation cell should have atomic value.(i.e values can't be furthur broken)
+        ex:- there shild not be any attribute like full name as it can be broken into 
+             f_name , m_name , l_name
+
+     
+     2. tables must not have multi-valued attributes. 
+
+        1NF solution. 
+
+        1. either USE TABLES INSTEAD TO STORE MULTI-VALUED ATTRIBUTES AS WE HAD DISSCUSSED BEFORE.
+        2. make multiple columns for same primary key to store that perticular thing.
+
+        ex:- consider a student data as 
+             std_id = 34 , age = 18 , subjects = (science , maths , physics ,bio )
+
+             then we can also make 4 columns for same student in student table like below.
+
+             std_id   age     subject 
+             34       18      science
+             34       18      maths 
+             34       18      physics 
+             34       18      bio
+
+
+2. 2NF(1nd normal form) :-
+    
+    0. firstly 1NF should be satisfied by the table of DB.
+
+    1. no partial dependancy. ONLY FULL DEPENDANCY SHULD BE THERE.
+
+       lets say a primary key forms from 2 attributes A and B. and attribute C and D needs to be determined from primary key.
+
+       {AB} -> C    = full dependancy = right 
+       {AB} -> D    = full dependancy = right 
+       {B} -> D     = partial dependancy = wrong 
+       {A} -> D     = partial dependancy = wrong 
+       {B} -> C     = partial dependancy = wrong 
+       {A} -> C     = partial dependancy = wrong 
+
+        ex:- 
+
+        consider a table of student and their projects
+
+        student_id     project_id    student_name     project_name 
+        453            p06           jana             abc 
+        752            p02           rama             xyz 
+        257            p09           shama            pqr 
+
+        first of all note that above table is following 1NF conditions.
+        i.e all values are atomic and there is no multivalued attributes.
+
+
+        now we are saying Primary key  ={std_id , project_id}
+
+        dependancy will be  {std_id , project_id} -> student_name , project_name
+        
+        i.e we have to combine both primary keys to uniqly identify both the project_name and student_name.
+
+
+        BUT WE CAN CLEARLY SEE  THAT 
+        student_id can uniqly identify student_name 
+        i.e student_id -> student_name  = partial dependancy
+
+        and 
+
+        project_id can uniqly identify project_name 
+        i.e project_id -> project_name  = partial dependancy
+
+        therefore , 2NF  is not satified here hance 2NF solution is to break above table  
+        int 2 tables as 
+
+                        student table 
+        (P.K)          (F.K)
+        student_id     project_id    student_name      
+        453            p06           jana              
+        752            p02           rama              
+        257            p09           shama             
+
+                        project table
+        
+        (P.K)               
+        project_id         project_name 
+        p06                abc 
+        p02                xyz 
+        p09                pqr 
+
+
+
+3. 3NF 
+    1. relation must be in 2NF form.
+    2. no transitivit dependancy exists
+        i.e a non-prime attribute should not find a non-prime attribute as it creates a redundancy.
+
+    given functional dependancy is 
+            A -> B -> C.
+            means A can determine B and B can determine C.
+
+            BUT think about it. IF B CAN UNIQLY identify C then whats the need of primary key then ?
+            AS "FUNCTION OF PRIMARY KEY IS TO UNIQLY identify EACH AND every COLUMMN OF TABLE"
+            BUT THAT IS NOT GETTING SATISFIED BELOW AS C COLUMN CAN BE DETERMINED BY B.
+
+    ex:- 
+            A       B        C
+
+            a       1        x 
+            b       3        z
+            c       2        y
+            d       1        x 
+            e       1        x 
+            f       2        y
+            h       3        z  
+
+           as we can see that A can determine B. 
+           and B can also determine C 
+           as wehever B = 1 , C = x 
+                      B = 2 , C = y 
+                      B = 3 , C = z 
+
+
+            hence 3NF is not satified here 
+
+            3NF solution is to break above in 2 tables as 
+            R1(A , B)
+            R2(B , C)
+
+                table1
+            A       B        
+
+            a       1         
+            b       3        
+            c       2        
+            d       1         
+            e       1         
+            f       2        
+            h       3                     
+            
+
+                table2
+            B       C
+
+            1       x 
+            2       y   
+            3       z 
+
+
+            now note that previous to column B and C constained a lots of redandancy that even if 1 is 
+            mapping to x still we had a lots of column doing this mapping which was unnecessory 
+            similary 2 and 3 doing same.
+
+            but in above 2 tables we just have 3 columns to map from B to C column.
+
+
+4. BCNF(Boyce-Codd normal form)
+    1. relation must be in 3NF.
+    2. int Functional dependancy A-> B , A should be a super key such that B should not refind A.
+       i.e we must not derive prime attributes from any non-prime or prime attributes.
+
+    ex:-
+
+    consider a table of student-professor.
+
+    student_id    subject    professor
+    101           java       PJ 
+    101           cpp        PC 
+    102           java       PJ2
+    103           pyhton     PP     
+    104           java       PJ 
+
+    constrains.
+    
+    1. one student can enroll in multiple subjects. ex:- 101 enroll in java and cpp 
+    2. for each subjec there is professor is assinged.
+    3. multiple professor teach single subject.
+    4. one professor can teach only one subject.
+
+    now to find the professor for given student and subject we have primary key = {student_id , subject}
+    note that ther are all atomic values and on multivalued attributes hence it is 1NF ,
+    also none of those indivisual attributes can find professor alone os 2NF is valid.
+    and as no transitivity dependancy hence 3NF is also valid
+
+    now to find professor for given studend and subject we have 
+    F.D = {student_id , subject} -> professor
+
+    and as each professor had a unique subject assinged 
+    to find subject for each professor 
+    {professor} -> subjec.
+
+
+    but note that in previous FD we used student_id and subject AS PRIME ATTRIBUTES to find professor but 
+    here we just going apposite and finding subject(WHICH IS A PRIME ATTRIBUTE) from professor.
+
+
+    SO ABOVE THING DONT FOLLOW BCNF WHICH SAYS THAT "WE MUST NOT DERIVE PRIME ATTRIBUTES FROM NON-PRIME ATTRIBUTES."
+
+
+    BCNF solution for above , 
+    is to break above table in 2 tables.
+
+    studend table 
+
+    student_id        professor_id 
+    101                 1
+    101                 3
+    102                 2
+    103                 4
+    104                 1  
+
+
+
+    professor table 
+
+    professor_id    professor_name   subject
+    1                    PJ           java 
+    2                    PJ2          java 
+    3                    PC           c++ 
+    4                    PP           pyhton
+
+
+    now node that in professor table only professor_id is primary key and it is finding 
+    professor_name and subject. but apposite thing(I.E SUBJECT AND PROFFESOR ARE FIDNING professor_id) is not happening like before.
+    HENCE ABOVE TABLES ARE MORE CORRECT.
+
+
+5. adavantages of normalization:-
+    1. it reduces data redundancy.
+    2. well organized database with make querying DB faseter.
+    3. consistancy of DB is maintained.

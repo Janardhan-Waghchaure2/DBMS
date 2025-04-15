@@ -1,0 +1,26 @@
+1. a unit of work done against DB in logical sequence is called transaction.
+   ex:- 1 transaction in a bank between account A(100 Rs balance ) and B(50 Rs balance) for 10 Rs is 
+
+            traction_i(ith transaction in DB) 
+                1. read_balance(A)
+                2. decrement balance of A in temp variable
+                    i.e temp = A - 10 = 100 - 10 = 90 Rs 
+                3. assign decremented value in A's account.
+                    i.e A = temp = 90 Rs                              
+                
+                4. read_balance(B)
+                5. increment balance of B in temp variable
+                    i.e temp = B + 10 = 50 + 10 = 60 Rs 
+                6. assign incremented value in B's account.
+                    i.e B = temp = 60 Rs .
+
+
+        so these 6 steps for machine level / computer level is just one step from user perspective or 
+        we can say IT IS ACTUALLY ONLY ONE STEP(i.e send money from one account to other account)
+         HENCE IT IS CALLED ONE UNIT OF WORK DONE OF DB.
+
+2. these transactions are either should be done completly(i.e 10 Rs are sent from A to B account) or 
+   beause of some error in system transaction will roll back(i.e 10 Rs which were deducted from A will 
+   be sent by to A is some errors occurs)
+
+    

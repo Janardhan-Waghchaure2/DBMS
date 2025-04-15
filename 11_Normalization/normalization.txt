@@ -1,0 +1,46 @@
+1. to avoid redandancy we use normalization.
+
+   redandant means unnecessory , waste , useless.
+
+
+2. what if we have redandant data in DB ?
+   ==> it creates a lots of anomolies as below.
+      
+      1. insertion anamoly => An Insert Anomaly occurs when certain attributes cannot be inserted into the 
+                              database without the presence of other attributes. 
+
+         ex:- if we have table which contains students info and branch(mechanical,cs ,electrical,IT ,...) IN SAME TABLE(but practically they should be in different tables)
+              now if we want to insert a new fresher/student who havent selected the subject yet THEN WE CANT INSERT THAT STUDENT AS TO DO SO 
+              "STUDENT SHOULD HAVE CORROSPONDING BRANCH ALSO" in same way if we want to insert new BRANCH which dont existed in college before 
+              then that to we can't do as "THEN THERE SHOULD BE ATLEAST ONE STUDENT CORROSPONDING TO THAT BRANCH."
+
+
+         this is what happens when we make 1 table of branch and students , everytimes we add a student THEN STUDENT SHOULD HAVE HIS/HER BRANCH 
+         ALSO and everytime we add a branch THEN THERE SHOULD BE SOME STUDENT WHO HAVE THAT BRANCH.
+
+      2. deletion anamoly => An deletion anamoly occurs when we delete some info. but it also deletes some imp.
+                            info present in same row in other column.
+
+         ex:-consider above student-branch table , lets say there was a student who was only robotic engineer in college.
+             now if we delete student from DB then it will delete ENTIRE BRANCH FROM THE COLLEGE AND IF DELTE BRANCH 
+             THEN THE STUDENT WILL ALSO GET DELTED THIS IS CALLED AS deletion anamoly.
+
+
+      3. updation anamoly => an updation anamoly occurs when to update single value WE HAVE TO UPDATE MULTIPLE OF ROWS.
+
+         ex:- consider above student-branch table , lets say there are 10 students of mechanical engineering and  HOD of 
+              department changes then we have to change 10 different rows for 10 student as each student is storing 
+              HOD attribute.
+              now if we just change one row then for some student HOD will be different and for other it will be different.
+              this is called updation anamoly.
+
+      SOLUTION TO ABOVE PROBLEM IS NORMALIZATION.
+
+3. NORMALIZATION :- breaking down of a bigger table in smaller table so that each of those tables will have a responsibility 
+                    to store only one information.
+         
+         ex:- in above problem if we create 2 separate tables of student and breanches then it will solve above anamolies.
+
+
+4. SRP (Single Responsibility Principle) :- NORMALIZATION tries to achive SRP.
+                                            SRP means that each table have only one responsibility to represent ONLY ONE ENTITY PROPERLY.

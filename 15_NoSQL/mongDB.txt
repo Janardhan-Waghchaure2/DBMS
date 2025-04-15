@@ -1,0 +1,20 @@
+1. MongoDB is a NoSQL database.
+
+2. it stores the data in form of BSON.(similar to JSON objects)
+
+3. to store a unit of the data in in SQL database we have tuple or row of database.
+   but in MongoDB we have a JAVA SCRIPT OBJECT like thing which stores data in 
+   key : value format.
+
+
+ex:- to store student data , we can have 1 entry of student like 
+
+
+   std = {
+        f_name : "jana" ,
+        l_name : "waghchaure" ,
+        age : 21 , 
+        hobbies : ["a" , "b" , "c"]
+   }
+
+   and MongoDB basically stores multiple of above kind of javascript objects.

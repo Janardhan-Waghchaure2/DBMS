@@ -1,0 +1,121 @@
+1. to ensure the integrity constrains of data , we should ensure that DB system maintains following properties of the transaction.
+   
+   1. Atomicity :- 1. either all operations are reflected in DB or none.
+                      i.e a given transaction will either occur completly and it will UPDATE DB or it will not occur completly
+                      and no updatation will be done on DB.
+
+                   2. consider example of transaction from A(100 Rs balance ) to B(50 Rs balance) account for 10 Rs.
+
+                    below are the 6 steps in given transaction.
+                    
+                1. read_balance(A)
+                2. decrement balance of A in temp variable
+                    i.e temp = A - 10 = 100 - 10 = 90 Rs 
+                3. assign decremented value in A's account.
+                    i.e A = temp = 90 Rs                              
+                
+                4. read_balance(B)
+                5. increment balance of B in temp variable
+                    i.e temp = B + 10 = 50 + 10 = 60 Rs 
+                6. assign incremented value in B's account.
+                    i.e B = temp = 60 Rs .
+
+                now lets say while transaction was procedding and at step 4 we are not able 
+                to load the B bank balance BUT WE HAVE deducted 10 RS FROM A ACCOUNT.
+
+                so in this case our DB SHOULD BE DESIGNED IN SUCH A WAY THAT IT CAN ROOLBACK TO 
+                OLD STATE (where balance of A is 100 Rs and B is 50 Rs)
+
+   2. consistancy :- 
+               1. DB should stay consistant before and after the transaction.
+
+               2. in above example if we have implemented proper ROLLBACK mechanism in code then 
+                  SYSTEM WILL BE IN CONSISTANT STATE IN BEFORE AND AFTER OF transaction.
+                
+               3. but if ROLLBACK mechanism is not properly implemented then 
+                  before transaction , total money in bank system = 100 + 50 = 150 Rs 
+                  after transaction , total money in bank system  = 90 + 50 = 140 Rs 
+
+                  this is what we mean by inconsistancy , money has been lost due to failure of transaction.
+
+
+    3. Isolation :- 
+                1. at a given time there might be multiple transaction which are happeing.
+                   while designing the DB system we have to make sure that for any Ti and Tj transaction
+                   (which are executing concurrently) 
+                        1. Ti completes the transaction first then Tj proceeds for transaction.
+                        2. Tj completes the transaction first then Ti proceeds for transaction.
+                    i.e each transaction present in system is aware of other transaction currently going on in system.
+                   
+                   MEANS WE CAN SAY THAT DB SYSTEM SHOULD BE DESIGNED IN SUCH A WAY THAT Ti will not INTERFERE WITH Tj 
+                   AND Tj will not INTERFERE WITH Ti. "This is called as Isolation(i.e one process in not messing up with other process output)"
+
+                2. consider the T1 = Transaction of 10Rs from A to B account in google pay 
+                                T2 = Transaction of 10Rs from A to B account in phone pay 
+
+                        now as A balance = 100 Rs  
+                               B balance = 50 Rs  
+
+                        lets say T1 and T2 are simultaniusly working on account A 
+                        and T1 does first 2 steps of transaction like 
+                
+                1. read_balance(A)
+                2. decrement balance of A in temp variable
+                    i.e temp = A - 10 = 100 - 10 = 90 Rs 
+
+                        but at same time instead of reading this updated bank balance of A (90Rs) 
+                        T2 transaction reads the previous bank balance of A(100Rs) and does below transaction steps.
+
+                1. read_balance(A)
+                2. decrement balance of A in temp variable
+                    i.e temp = A - 10 = 100 - 10 = 90 Rs
+
+                    and both accounts sets balance of 90Rs on account A.
+               3. assign decremented value in A's account.
+                    i.e A = temp = 90 Rs  
+
+                    and fianlly 10Rs twice is sent to B account hence 
+
+                balance of B = 50 + 20 = 70 Rs.
+
+                now notice the inconsistancy
+                    balance of system before transaction = 100 + 50 = 150 Rs 
+                    balance of system after transaction = 90 + 70 = 160 Rs 
+
+                    i.e we have introduced extra 10Rs in system.
+
+    ---------------------------------------
+    All of above happed beacuse there wasn't any isolation in DB system.
+    if T1 and T2 had occured in concurrently but withot interferring.
+    i.e IN ISOLATION THEN ABOVE PROBLEM COULD HAVE BEEN EASILY AVOIDED.
+    hence our system should handle concurrently executing transactions properly.
+    ---------------------------------------
+
+
+                    
+
+    4. Durability :- 
+
+                _____________________________________________________________________________________
+                actual transactions don't directly occur in DB(beacuse DB is just a storage its not 
+                a computer and as we saw those 6 steps of transaction , those requires some computations
+                hence we place a computer and ones all computation of transaction occurs then we simply
+                copy the results in DB) they actually firstly carried out on 
+                main MEMORY(RAM). then ones they are successfull then only those updates are done in 
+                DB(called as commiting changes to DB). 
+                if it fails in between then changes wont be added in main DB.
+                _____________________________________________________________________________________
+
+
+              1. after transaction completes successfully in main memory, and if there is some failure occurs while 
+                 commiting those changes in DB then there should be some way/mechanism to handle that condition.
+
+              2. lets say that transaction of 10Rs from A(100 Rs) to B(50Rs) is successfull and now 
+                 A's balance is 90 Rs and 60 Rs but THESE CHANGES ARE NOT WRITTEN DIRECTLY IN MAIN DB.
+                 THESE CHANGES ARE WRITTEN IN A BUFFER MEMORY AND THEN THOSE CHANGES ARE MADE IN MAIN DB.
+
+              3. now lets say entire transaction occurs successfully.
+                 but due to some failure on backed side BUFFER MEMORY FAILS TO UPDATE THESE CHNAGES IN MAIN MEMORY
+                 THEN THERE SHOULD BE SOME MECHNANISM TO RESTORE THE TRANSACTION WHICH HAS OCCURED.
+
+              4. otherwise transaction will occur in frontend side but it wont be updated in backend side. 

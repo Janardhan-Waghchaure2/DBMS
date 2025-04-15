@@ -1,0 +1,43 @@
+1. Relational Databases:
+    1. Tables are used to store data.
+    2. RDBMS(software) and SQL(language) is used to manipulate the data on DB.
+    3. it garenties least redundancy.
+    4. complex the data more willl be tables DIFFICULT TO MANAGE.
+    5. ITS NOT HORIZONTAL SCALABLE.
+    6. it is matuared databases and have a lots of community support AND USED A LOT IN TODAYS WORLD.
+
+
+2. Object Oriented Databases:
+    1. It is based on Object Oriented paradigm of programming.
+    2. each and everthing in this DB is classes and objects.
+    3. while adding/inserting data in DB it will be added in form of Objects similarly while 
+       retriving the data will be also in form of object.
+    4. objects will also have some methods associated with them which will tell behviour of objects.
+    5. works best if programme interacting with DB is also an object Oriented language(java ,python , c++).
+    6. Ex:- ObjectDB , GemStone , etc..
+
+
+3. NoSQL Databases :
+    1. they are non-tabular databases , i.e they dont use Tables to store the data.
+    2. redundancy and repeated data is present in this data 
+    3. it also provides flexible schema.
+    4. can handle large data volumes.
+    5. capable of HORIZONTAL scaling.
+    6. THIS DATABASES ARE ALSO USED A LOT.(used a lot in cloud applications)
+ 
+4. Hierarchical Databases :
+    1. Data is stored in Hierarchical Form.
+    2. Family tree:- grandparents represents root node of tree data structure.
+                     parents represents the below level childs of tree.
+                     and child represents the leaft nodes of tree.
+    3. file system:- files internally stored in a tree data structure.
+                     where each root node represents and each of the child of directory either represents 
+                     a file or some other directory.
+
+    4. Organization information :- at Diffrent level , Diffrent emplyees are represented.
+                                   each root node represents the head of all the child elements.
+
+
+5. network Databases :
+    1. this is similar to Hierarchical Data form , only difference is that any child can have multiple parent nodes.
+       we can also call this as graph Database as any node can have connection to any other nodes.

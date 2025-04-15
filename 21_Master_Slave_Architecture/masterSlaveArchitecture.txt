@@ -1,0 +1,68 @@
+1. to avoid single point , to do load balencing  we DO HORIZONTAL SCALING.
+
+2. in HORIZONTAL scaling we simply add more number of servers which shaires the load of user queries.
+
+3. In those DBMS we have a main database called "MASTER" and we also have some other servers 
+   called as "SLAVES".
+
+4. This MASTER DB / original DB / Owner DB / Primary DB have the latest Information(requests are coming from user to write on DB).
+   AND HENCE ALL THE WRITE OPERATIONS ARE DONE BY THIS "Primary DB" as it is the only one who is 
+   having all the write requests.
+
+5. slave/replica DB's will just do Read operations.
+    and with help of DB replication they will replicate the original DB.(as we saw that latest write requests 
+    are only going towards master DB hence slaves have to update themselves WITH MASTER's DATA SO THAT 
+    ALL OF THE DB's WILL BE CONSISTANCE in data)
+
+            ___________________________________________________________
+            Master DB :- 1. will get all the requests to "Write on DB"
+            Slave DB :- 1. will get all the requests to "Read from DB"
+            ___________________________________________________________
+
+
+6. there are 2 types of replications.
+    1. Asynchronous Replication :- 1. in this type of replication slaves dont update themselves
+                                      immidiatly after MASTER GETS SOME NEW DATA.
+                                      they gets updated after a duration of time.
+                                   2. and before the updatation happens if someone requests FOR THAT SAME 
+                                      DATA THEN THAT USER WILL SEE THE OLD DATA.
+                                   3. MEANS WE CAN SAY THAT MASTER AND SLAVES ARE NOT IN SYNC WITH EACH OTHER 
+                                      THEY ARE WORKING "Asynchronously".
+                ex:- if master DB at t = 0 , gets x = 4 (where previous value of x is 10) from user to write on DB and 
+                        slave DB copies it after some delay at t = 12 and 
+                        
+                        if someone request value of x on slave DB inbetween t = 0 to t = 12 then user will see the 
+                        old value x i.e x = 10.
+
+        application :- Facebook Comments , likes on social media , beacuse a little bit of latency in Data updatation 
+                       is ok.NOT A BIG PROBLEM
+
+    2. Synchronous Replication :- 1. in this type of replication slaves updates themselves immidiatly after 
+                                     Master gets new data to write.
+                                  2. here master and slaves works with SYNC between each other.
+        application :- banking appliation where deduction of money or creadition of money should be immidiatly updated to bank servers.
+
+
+
+
+7. what is slave gets update or write query ?
+    1. if slave gets some upate or write queries then THAT SLAVE SHOULD REJECT THOSE 
+       QUERIES , AS THIS IS THE WORK OF MASTER.
+    
+    2. AND IF WE ALLOW THE SLAVE TO DO THAT THEN "ITS NO LONGER A MASTER-SLAVE MODEL."
+       THEN IT WILL BECOME MASTER-MASTER MODEL.
+
+
+8. Advantages of Master-Slave model.
+    1. slaves provides the backup. LETS say if due to some reason master server fails(means system will not be able to do 
+       any write operations ex:- no one will be able to post on social media) but all the users will be able to  read the 
+       data as slaves are still up.(ex:- everyone will be able to scroll through socail media and can visit older social media content.)
+
+    2. SCALING HORIZONTALLY THE "READ OPEATIONS" :- IF APPLICATION IS LIKE A SOCIAL MEDIA SITES WEHRE RATE OF DATA/CONTENT CONSUMING USERS 
+       IS HIGHER AS COMPAIRED TO DATA CREATING USERS(CREATERS) then scaling out(HORIZONTALLY) read operation is very helpful.
+
+    3. availability increases.
+
+    4. system becomes realiable 
+
+    5. concurrent/parallel requests can be executed as we have multiple slaves which could serve multiple users simultaniously.

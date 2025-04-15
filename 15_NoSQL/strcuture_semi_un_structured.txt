@@ -1,0 +1,30 @@
+1. Structured data :- 1. data is arrenged in a proper tabular form.
+                       ex:- .xl or sql database.
+                             in each cell fixed size of integer is stored , like if we have said that each age variable 
+                             will store 32 bit integer then each and every students age WILL BE FIXED SIZE OF 32 BIT.
+
+
+                      2. this data is not growing that much fast as compaired to unstructured data.
+
+                      3. easier to store in Databases and data warehouses also requires less storage space.
+
+                      4. can be easily analyzed unsing simple tools like Excel and SQL.
+
+2. unstructured data :-
+                    1. data which can't be represented in a tabular format.
+                      ex:- reviews of a customer , comment on social media , image , vidio , audio ,teweets , 
+                           reels , etc...
+                           
+                           size of image can vary , file type of image can vary  , height-width of image can vary ,
+                           etc.. so for unstructured data there is nothing which is predefined anything can change.
+                           HENCE IT IS CALLED unstructured AS THERE IS NO predefined CONTRAINS.
+
+                    2. most of the data which we see around is unstructured in nature AND IT IS GROWING EXPNENTIALLY 
+                       DUE TO INTERNET.
+                    
+                    3. due to non-liner/unstructured way it is difficult to store and requires high storage spaces.
+                       ex:- nosql  databases like MongoDB.
+
+                    4. requires ML and AI algo. to analyze data.
+                       ex:- sentiment/meaning analysis of customer review.
+                    
