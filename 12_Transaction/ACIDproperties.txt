@@ -37,6 +37,8 @@
                   after transaction , total money in bank system  = 90 + 50 = 140 Rs 
 
                   this is what we mean by inconsistancy , money has been lost due to failure of transaction.
+               4. consider e-commerse site , when user orders the product system subtract 1 from DB , 
+                  but then payment fails then system still don't re add the product to inventory THIS IS INCONSISTANCT.
 
 
     3. Isolation :- 
