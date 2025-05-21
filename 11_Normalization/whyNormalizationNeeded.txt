@@ -1,0 +1,35 @@
+Normalization in databases helps eliminate **data redundancy** and **inconsistencies** while improving efficiency. 
+It ensures that data is stored logically and avoids anomalies in insertion, update, and deletion.
+
+
+### Example:
+Imagine a **student database** where student details and course enrollment are stored in a single table:
+
+| Student_ID | Name  | Course   | Instructor |
+|------------|-------|----------|------------|
+| 1          | Alice | Math     | Prof. X    |
+| 2          | Bob   | Science  | Prof. Y    |
+| 1          | Alice | Science  | Prof. Y    |
+
+#### **Problems Without Normalization:**
+1. **Redundant Data** – Alice's name appears twice because she enrolled in two courses.
+2. **Update Anomaly** – If Alice changes her name, we must update multiple rows.
+3. **Deletion Anomaly** – If we remove a course, we might lose student details.
+
+#### **Solution Using Normalization:**
+We split the data into **two tables**:
+
+**Students Table:**
+| Student_ID | Name  |
+|------------|-------|
+| 1          | Alice |
+| 2          | Bob   |
+
+**Enrollments Table:**
+| Student_ID | Course   | Instructor |
+|------------|----------|------------|
+| 1          | Math     | Prof. X    |
+| 2          | Science  | Prof. Y    |
+| 1          | Science  | Prof. Y    |
+
+Now, updates and deletions happen efficiently without affecting unrelated data.
