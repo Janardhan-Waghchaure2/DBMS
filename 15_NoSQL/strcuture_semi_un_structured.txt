@@ -27,4 +27,7 @@
 
                     4. requires ML and AI algo. to analyze data.
                        ex:- sentiment/meaning analysis of customer review.
-                    
+
+3. semistructured data :- 
+                  1. data which has some structure to it but contains some unstructured data init.
+
